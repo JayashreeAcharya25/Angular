@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap');
+
+.about-section .about-column,
+.service-section .service-column{
+    height: 500px;
+    display: grid;
+    padding: 3rem 5rem;
+}
+
+.about-section .about-column{
+    background: #fdf7f0;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.about-section .about-column .column img{
+    width: 250px;
+    height: 400px;
+    margin: auto;
+    display: block;
+}
+.about-section .about-column .column{
+    margin: auto;
+    text-align: center;
+}
+
+.about-section .about-column .column:nth-child(1) h1{
+    font-family: 'Odibee Sans', cursive;
+    font-size: 65px;
+}
+
+.about-section .about-column .column:nth-child(1) p{
+    font-family: 'Fira Sans Condensed', sans-serif; 
+}
+
+.about-section .about-column .column:nth-child(3){
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.about-section .about-column .column:nth-child(3) img{
+    height: 200px;
+    width: 200px;
+}
+
+.service-section{
+    background: url('../../../assets/service-section-bg.jpg') no-repeat;
+    background-size: cover;
+}
+
+.service-section .service-column{
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.service-section .service-column .card{
+    background: #fff;
+    height: 200px;
+    width: 50%;
+    border-radius: 10px;
+    margin: auto;
+    text-align: center;
+}
+
+.service-section .service-column .card h3{
+    font-family: 'Fira Sans Condensed', sans-serif; 
+}
