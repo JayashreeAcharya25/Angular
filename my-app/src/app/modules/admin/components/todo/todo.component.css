@@ -28,5 +28,11 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 30px;
-    row-gap: 30px;
+    row-gap: 50px;
+    padding-top: 50px;
+}
+
+.todo-component .uk-container .uk-card{
+    border-radius: 15px;
+    width: 250px;
 }

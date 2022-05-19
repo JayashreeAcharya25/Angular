@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { TodoComponent } from './components/todo/todo.component';
+import { ProductsComponent } from './components/products/products.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { TodoComponent } from './components/todo/todo.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    TodoComponent
+    TodoComponent,
+    ProductsComponent,
   ],
   imports: [
     CommonModule,
