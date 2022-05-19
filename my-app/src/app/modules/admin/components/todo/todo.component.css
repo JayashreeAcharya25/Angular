@@ -1,0 +1,32 @@
+.todo-component{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
+                url('../../../../../assets/background.jpg') no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.todo-component .uk-text-input{
+    padding-top: 35px;
+    display: flex;
+    justify-content: center;
+}
+.todo-component .uk-inline{
+    width: auto;
+}
+.todo-component .uk-input{
+    width: 30%;
+    background: transparent;
+    margin: 0;
+}
+.todo-component .uk-button{
+    float: left;
+    margin: 0 25px;
+    color: #fff;
+}
+
+.todo-component .uk-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+    row-gap: 30px;
+}

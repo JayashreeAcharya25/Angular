@@ -1,0 +1,23 @@
+<div class="data-component">
+
+
+    <div class="uk-margin uk-search-margin">
+        <form class="uk-search uk-search-default">
+            <span uk-search-icon></span>
+            <input class="uk-search-input" type="search" name="filterBy" [ngModelOptions]="{standalone: true}"
+                [(ngModel)]="filterBy" (keyup)="filter()" placeholder="Search Users...">
+        </form>
+    </div>
+
+
+    <div class="uk-container">
+        <div data-aos="fade-up" class="uk-card uk-card-default uk-card-small uk-card-body"
+            *ngFor="let user of filteredUsers">
+            <h3 class="uk-card-title">{{ user.name }}</h3>
+            <p>Email Id: {{ user.email }}</p>
+            <p>Website: {{ user.website}}</p>
+        </div>
+
+    </div>
+
+</div>

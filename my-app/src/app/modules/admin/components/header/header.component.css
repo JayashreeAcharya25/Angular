@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+
+header .uk-navbar-container{
+    margin-bottom: 0;
+}
+
+header .uk-navbar-item, li a{
+    min-height: 20px;
+}
+
+header .uk-navbar-nav li a{
+    padding: 1rem 2rem;
+    font-family: 'Jost', sans-serif;
+}
+
+header .uk-logo{
+    height: auto;
+    font-family: 'Prata', serif;
+    padding-top: 15px;
+    text-transform: uppercase;
+}

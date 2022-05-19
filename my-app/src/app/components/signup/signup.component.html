@@ -1,0 +1,38 @@
+<div class="section-form">
+    <form class="glass-effect" [formGroup]="signupForm" (ngSubmit)="onSignup()">
+
+        <h1 class="form-title text-align">Sign Up</h1>
+
+        <div class="uk-margin">
+            <div class="uk-inline align-center">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input class="uk-input" type="text" formControlName="username" placeholder="Username" required>
+                
+            </div>
+            <!-- <span *ngIf="signupForm.controls['username'].dirty && signupForm.hasError('required', 'username')">
+                * Username Required
+            </span> -->
+        </div>
+
+        <div class="uk-margin">
+            <div class="uk-inline align-center">
+                <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                <input class="uk-input" type="text" formControlName="email" placeholder="Email Id" required>
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <div class="uk-inline align-center">
+                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                <input class="uk-input" type="password" formControlName="password" placeholder="Password" required>
+            </div>
+        </div>
+
+        <button class="uk-button uk-button-default align-center" 
+            >
+            Button
+        </button>
+
+        <!-- <button class="btn btn-success pull-right" ><a routerLink="/home"> Add Customer</a></button> -->
+    </form>
+</div>

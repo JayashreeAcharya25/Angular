@@ -1,0 +1,61 @@
+@import url("https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/css/uikit.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+
+/* :root{
+    --black: #000;
+} */
+
+.text-align{
+    text-align: center;
+}
+
+.align-center{
+    display: block;
+    margin: auto;
+}
+
+.glass-effect{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Form */
+
+.form-title{
+    color: #fff;
+    font-family: 'Koulen', cursive;
+}
+.section-form{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
+                url('../../../assets/background.jpg') no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.section-form form{
+    display: block;
+    left: 50%;
+    margin: auto;
+    padding: 20px 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+}
+
+.section-form form .uk-inline{
+    width: 80%;
+}
+
+.section-form form .uk-input::placeholder{
+    color: #b9b9b9;
+    font-size: 13px;
+}
+
+.section-form form button{
+    color: #fff;
+}

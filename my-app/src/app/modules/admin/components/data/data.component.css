@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+.data-component{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
+    url('../../../../../assets/background.jpg') no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding: 20px;
+}
+.data-component .uk-search-margin{
+    padding-top: 20px;
+}
+.data-component .uk-search{
+    width: 50%;
+    margin: auto;
+    display: block;
+}
+.data-component .uk-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    padding-top: 40px;
+}
+.data-component .uk-card{
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.data-component .uk-card:hover{
+    transform: scale(0.95);
+}
+.data-component .uk-card h3{
+    font-size: 22px;
+    font-family: 'Jost', sans-serif;
+}
+.data-component .uk-card p{
+    color: #797979;
+    font-size: 14px;
+    font-family: 'Jost', sans-serif;
+    
+}

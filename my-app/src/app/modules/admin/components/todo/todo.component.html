@@ -1,0 +1,13 @@
+<div class="todo-component">
+    <div class="uk-margin uk-text-input">
+        <input class="uk-input" type="text" placeholder="Write Something..." #task>
+        <span class="uk-form-icon" uk-icon="icon: user"></span>
+        <button class="uk-button uk-button-default" type="submit" (click)="onAddItem(task.value)">Add</button>
+    </div>
+    <div class="uk-container">
+        <div class="uk-card uk-card-default uk-card-small uk-card-body" *ngFor="let item of List">
+            <h3 class="uk-card-title">{{item.name}}</h3>
+            <a uk-icon="trash" (click)="onDelete(item.id)"></a>
+        </div>
+    </div>
+</div>
