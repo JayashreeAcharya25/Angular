@@ -74,6 +74,10 @@
     display: block;
 }
 
+.service-section .service-column .uk-position-relative{
+    margin: auto;
+}
+
 .service-section .uk-slider-items img{
     width: 250px;
     height: 250px;
@@ -88,4 +92,10 @@
 .service-section .uk-slider-items p{
     color: #000;
     font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+.service-section .uk-slider-nav{
+    margin: 20px 0;
+    padding: 20px 0;
+    justify-content: center;
 }
