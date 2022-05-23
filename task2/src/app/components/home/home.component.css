@@ -74,6 +74,10 @@
     display: block;
 }
 
+.service-section .service-column{
+    height: auto;
+}
+
 .service-section .uk-slider-items img{
     width: 250px;
     height: 250px;
