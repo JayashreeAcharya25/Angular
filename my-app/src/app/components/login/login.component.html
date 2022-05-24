@@ -1,23 +1,23 @@
 <div class="section-form">
-    <form class="glass-effect" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <form class="glass-effect" #userform="ngForm" (ngSubmit)="onLogin(userform.value)">
 
         <h1 class="form-title text-align">Login</h1>
 
         <div class="uk-margin">
             <div class="uk-inline align-center">
                 <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                <input class="uk-input" formControlName="email" type="text" placeholder="Email Id">
+                <input class="uk-input" ngModel name="email" type="text" placeholder="Email Id">
             </div>
         </div>
 
         <div class="uk-margin">
             <div class="uk-inline align-center">
                 <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                <input class="uk-input" formControlName="password" type="password" placeholder="Password">
+                <input class="uk-input" ngModel name="password" type="password" placeholder="Password">
             </div>
         </div>
 
-        <button class="uk-button uk-button-default align-center" type="submit">
+        <button class="uk-button uk-button-default align-center">
             Button
         </button>
 
