@@ -18,6 +18,14 @@ export class SharedService {
     return this.http.post(this.APIUrl + '/users/user', val);
   }
 
+  getCurrentUser(id: any){
+    return this.http.get(this.APIUrl + `/users/user/${id}`);
+  }
+
+  updateUsers(val: any){
+    return this.http.put(this.APIUrl + '/users/user/', val);
+  }
+
   deleteUsers(id: any){
     return this.http.delete(this.APIUrl + `/users/user/${id}`);
   }

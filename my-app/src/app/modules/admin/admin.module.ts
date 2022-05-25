@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { ProductsComponent } from './components/products/products.component';
 import { UsersComponent } from './components/users/users.component';
+import {FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +24,9 @@ import { UsersComponent } from './components/users/users.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

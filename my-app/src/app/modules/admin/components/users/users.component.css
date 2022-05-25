@@ -41,8 +41,10 @@
     color: #fff;
 }
 
-.user-components .user-container .uk-modal-body p{
+.user-components .user-container .user-modal h3{
     color: #292929;
-    font-family: 'Jost', sans-serif;
+    font-family: 'Koulen', cursive;
     font-size: 20px;
 }
+
+

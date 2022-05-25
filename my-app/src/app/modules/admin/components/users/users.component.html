@@ -4,8 +4,8 @@
             <h2>User List</h2>
         </div>
         <table class="uk-table uk-table-divider">
-            
-            <thead >
+
+            <thead>
                 <tr>
                     <th>Username</th>
                     <th>Email Id</th>
@@ -17,21 +17,41 @@
                     <td>{{user.username}}</td>
                     <td>{{user.email}}</td>
                     <td><a id="a" uk-icon="trash" (click)="deleteUser(user.id);"></a></td>
-                    <td><a href="#modal-example" uk-toggle uk-icon="pencil"></a></td>
+                    <td><a id="a" href="#modal-example" uk-toggle uk-icon="pencil" (click)="editUser(user.id);"></a></td>
                 </tr>
-                
+
             </tbody>
         </table>
-                <!-- This is the modal -->
-        <div id="modal-example" uk-modal>
-            <div class="uk-modal-dialog uk-modal-body">
-                <p>Edit Form</p>
-                
-                <p class="uk-text-right">
-                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                    <button class="uk-button uk-button-primary" type="button">Save</button>
-                </p>
+        <!-- This is the modal -->
+        <div class="user-modal" id="modal-example" uk-modal>
+
+            <div class="uk-modal-dialog uk-modal-body" *ngFor="users">
+                <h3 style="font-family: 'Jost', sans-serif;">Edit Form</h3>
+                <form class="glass-effect" #userform="ngForm" (ngSubmit)="onUpdate(userform)">
+                    <div class="uk-margin">
+                        <div class="uk-inline align-center" style="width: 70%;">
+                            <input class="uk-input" ngModel type="text" name="username" placeholder="Username" required value={{user.username}}>
+                        </div>
+
+                    </div>
+
+                    <div class="uk-margin">
+                        <div class="uk-inline align-center" style="width: 70%;">
+                            <input class="uk-input" ngModel type="text" name="email" placeholder="Email Id" required>
+                        </div>
+                    </div>
+                    <p class="uk-text-right" style="text-align: left!important;">
+                        <button class="uk-button uk-button-default uk-modal-close"
+                            style="margin-right: 20px;">Cancel</button>
+                        <button class="uk-button uk-button-primary"
+                            style="background: #020631; color: #fff;">Save</button>
+                    </p>
+                </form>
             </div>
+
         </div>
+
     </div>
 </div>
+
+<!-- https://www.webonsky.com/how-to-edit-and-update-reactive-form-in-angular -->
