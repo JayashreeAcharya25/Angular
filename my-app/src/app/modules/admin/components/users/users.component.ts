@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { UserModel } from './users.model'
 
 @Component({
   selector: 'app-users',
@@ -9,17 +9,24 @@ import {FormsModule, ReactiveFormsModule  } from '@angular/forms';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  user: any
-  users: any
-  data: any
+  formValue!: FormGroup;
+  userModelObj : UserModel = new UserModel();
+
+  users: any;
   
-  constructor( private userData: SharedService ) { }
+  constructor( private userData: SharedService, private formBuilder: FormBuilder ) { }
 
   ngOnInit(): void {
     this.userData.getUsers().subscribe((data => {
       this.users = data;
       console.log(this.users);
     }))
+
+    this.formValue = this.formBuilder.group({
+      username: [''],
+      email: [''],
+      password: ['']
+    })
   }
 
   deleteUser(id: any){
@@ -31,24 +38,36 @@ export class UsersComponent implements OnInit {
     console.log(id)
   }
 
-  editUser(i: any){
+  editUser(row: any){
+    this.userModelObj.id = row.id;
+    console.log(row.id)
+
+    this.formValue.controls['username'].setValue(row.username)
+    this.formValue.controls['email'].setValue(row.email)
+    this.formValue.controls['password'].setValue(row.password)
     // this.userData.getCurrentUser(id).subscribe(res=>{
-    //   this.users = 
-    //   console.log('Current User', res)
-    // }, err => console.log('Error', err))
-      //console.log(id)
-      this.users.setValue({
-        id: i,
-        username: this.users.username,
-        email: this.users.email
-      })
   }
 
-  onUpdate(item: any){
-    this.userData.updateUsers(item).subscribe((data => {
-      this.users = data;
-      console.log(this.users);
-    }))
+  onUpdate(){
+    console.log('------ Before ------')
+    console.log(this.formValue.value)
+    this.userModelObj.username = this.formValue.value.username
+    this.userModelObj.email = this.formValue.value.email
+    this.userModelObj.password = this.formValue.value.password
+    
+    var val ={
+      id: this.userModelObj.id,
+      username : this.userModelObj.username,
+      email: this.userModelObj.email,
+      password: this.userModelObj.password
+    }
+  
+    this.userData.updateUsers(val)
+    .subscribe(res =>{
+      console.log(res);
+      alert("Updated Successfully")
+    }, err => console.log('Error', err))
+    
   }
 
 

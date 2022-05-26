@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {map} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,16 +19,30 @@ export class SharedService {
     return this.http.post(this.APIUrl + '/users/user', val);
   }
 
-  getCurrentUser(id: any){
-    return this.http.get(this.APIUrl + `/users/user/${id}`);
+  getCurrentUser(val: any){
+    return this.http.get(this.APIUrl + `/users/user`, val);
   }
 
   updateUsers(val: any){
-    return this.http.put(this.APIUrl + '/users/user/', val);
-  }
+    return this.http.put<any>(this.APIUrl + `/users/user`, val)
+    .pipe(map((res: any)=>{
+      return res;
+    }));
 
+  }
   deleteUsers(id: any){
     return this.http.delete(this.APIUrl + `/users/user/${id}`);
+  }
+
+
+
+
+  addProducts(val: any){
+    return this.http.post(this.APIUrl + `/podructs/product/`, val);
+  }
+
+  getProducts(){
+    return this.http.get(this.APIUrl + `/podructs/product/`);
   }
 
 }
