@@ -38,11 +38,11 @@ export class SharedService {
 
 
   addProducts(val: any){
-    return this.http.post(this.APIUrl + `/podructs/product/`, val);
+    return this.http.post(this.APIUrl + `/products/product`, val);
   }
 
   getProducts(){
-    return this.http.get(this.APIUrl + `/podructs/product/`);
+    return this.http.get(this.APIUrl + `/products/product/`);
   }
 
 }
