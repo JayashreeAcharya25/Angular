@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  users: any;
+
+  constructor(private userData: SharedService) {
+    
+   }
 
   ngOnInit(): void {
+
+    this.userData.getUsers().subscribe((res => {
+      this.users = res;
+      console.log(res);
+    }))
+
   }
 
 }

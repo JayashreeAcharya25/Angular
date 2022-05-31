@@ -11,7 +11,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class SignupComponent implements OnInit {
 
-  public signupForm !: FormGroup
+  signupForm! : FormGroup
   users: any
 
   constructor(  private router: Router, private formBuilder: FormBuilder, private http: HttpClient, private userData: SharedService) { 
@@ -20,23 +20,22 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.userData.getUsers().subscribe((data => {
-      this.users = data;
-      console.log(this.users);
-    }))
+    // this.userData.getUsers().subscribe((data => {
+    //   this.users = data;
+    //   console.log(this.users);
+    // }))
     
   }
 
 
-  onSignup(data: any){
+  register(data: any){
     
     // console.log(data);
 
-    this.userData.addUser(data).subscribe(res => {
-      this.users = res;
+    this.userData.register(data).subscribe(res => {
       alert("User Created..")
       this.router.navigate(['login']);
-      console.log("Response",res);
+        console.log("Response",res);
     }, err => console.log('Error',err)) 
 
   }

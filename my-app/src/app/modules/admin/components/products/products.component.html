@@ -1,7 +1,7 @@
 <div class="product-components">
     <div class="uk-column-1-2">
         <div class="column">
-            <form class="glass-effect" [formGroup]="formValue" (ngSubmit)="addProduct(formValue.value)">
+            <form class="glass-effect" [formGroup]="formValue" (ngSubmit)="addProduct(formValue.value)" >
                 <h3>Products</h3>
                 <div class="uk-margin">
                     <input class="uk-input uk-form-width-medium" formControlName="product_slno" type="text" placeholder="Product No.">
@@ -9,8 +9,11 @@
                 <div class="uk-margin">
                     <input class="uk-input uk-form-width-medium" formControlName="product_name" type="text" placeholder="Product Name">
                 </div>
-                <div class="uk-margin">
+                <!-- <div class="uk-margin">
                     <input class="uk-input uk-form-width-medium" formControlName="product_image" type="file" (change)="onFileUpload($event)" placeholder="Image">
+                </div> -->
+                <div class="uk-margin">
+                    <input class="uk-input uk-form-width-medium" formControlName="product_image" type="text" placeholder="Product Image">
                 </div>
                 <div class="uk-margin">
                     <input class="uk-input uk-form-width-medium" formControlName="product_price" type="text" placeholder="price">
