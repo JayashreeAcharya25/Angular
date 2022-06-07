@@ -36,12 +36,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Link1</td>
-                            <td>Link1</td>
-                            <td>Link1</td>
-                            <td>Link1</td>
-                            <td>Link1</td>
+                        <tr *ngFor="let products of product_list">
+                            <td>{{products.product_slno}}</td>
+                            <td>{{products.product_name}}</td>
+                            <td>{{products.product_image}}</td>
+                            <td>{{products.product_price}}</td>
+                            <td><a id="a" uk-icon="trash"></a></td>
                         </tr>
         
                     </tbody>

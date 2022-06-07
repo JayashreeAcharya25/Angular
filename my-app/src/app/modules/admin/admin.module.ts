@@ -10,6 +10,7 @@ import { TodoComponent } from './components/todo/todo.component';
 import { ProductsComponent } from './components/products/products.component';
 import { UsersComponent } from './components/users/users.component';
 import {FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { MailComponent } from './components/mail/mail.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {FormsModule, ReactiveFormsModule  } from '@angular/forms';
     TodoComponent,
     ProductsComponent,
     UsersComponent,
+    MailComponent,
   ],
   imports: [
     CommonModule,

@@ -17,10 +17,10 @@ export class UsersComponent implements OnInit {
   constructor( private userData: SharedService, private formBuilder: FormBuilder ) { }
 
   ngOnInit(): void {
-    // this.userData.getUsers().subscribe((data => {
-    //   this.users = data;
-    //   console.log(this.users);
-    // }))
+    this.userData.getUsers().subscribe((data => {
+      this.users = data;
+      console.log(this.users);
+    }))
 
     this.formValue = this.formBuilder.group({
       username: [''],

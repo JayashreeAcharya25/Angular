@@ -1,0 +1,17 @@
+<div class="mail-components">
+    <form action="" [formGroup]="formValue" (ngSubmit)="sendMail(formValue.value)">
+        <div class="uk-margin">
+            <input class="uk-input uk-form-width-medium" formControlName="username" type="text"
+                placeholder="Username">
+        </div>
+        <div class="uk-margin">
+            <input class="uk-input uk-form-width-medium" formControlName="email" type="text" 
+                placeholder="Email">
+        </div>
+        <div class="uk-margin">
+            <input class="uk-input uk-form-width-medium" formControlName="phone" type="text" 
+                placeholder="Phonenumber">
+        </div>
+        <button class="uk-button uk-button-default" type="submit">Send Mail</button>
+    </form>
+</div>

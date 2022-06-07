@@ -22,7 +22,7 @@ export class SharedService {
   }
 
   getUsers(){
-    return this.http.get(this.APIUrl + '/users/user');
+    return this.http.get(this.APIUrl + '/users/userlist');
   }
 
   // getCurrentUser(val: any){
@@ -37,7 +37,7 @@ export class SharedService {
   }
   
   deleteUsers(id: any){
-    return this.http.delete(this.APIUrl + `/users/user/${id}`);
+    return this.http.delete(this.APIUrl + `/users/deleteuser/${id}`);
   }
 
   addProducts(val: any){
@@ -46,6 +46,10 @@ export class SharedService {
 
   getProducts(){
     return this.http.get(this.APIUrl + `/products/product`);
+  }
+
+  sendMail(val: any){
+    return this.http.post(this.APIUrl + '/mail/sendMail', val);
   }
 
 }

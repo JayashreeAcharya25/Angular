@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { UsersComponent } from './components/users/users.component';
+import { MailComponent } from './components/mail/mail.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path:'todo-list', component: TodoComponent},
       { path:'users', component: UsersComponent},
       { path:'products', component: ProductsComponent},
+      { path:'mail', component: MailComponent},
     ]
   }
   
