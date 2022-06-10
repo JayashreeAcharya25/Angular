@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserModel } from './users.model'
+import * as JsonData from './data.json'
 
 @Component({
   selector: 'app-users',
@@ -13,6 +14,8 @@ export class UsersComponent implements OnInit {
   userModelObj : UserModel = new UserModel();
 
   users: any;
+
+  jsonData: any = (JsonData as any).default;
   
   constructor( private userData: SharedService, private formBuilder: FormBuilder ) { }
 
@@ -27,6 +30,8 @@ export class UsersComponent implements OnInit {
       email: [''],
       password: ['']
     })
+
+    console.log(this.jsonData)
   }
 
   deleteUser(id: any){
@@ -68,6 +73,12 @@ export class UsersComponent implements OnInit {
       alert("Updated Successfully")
     }, err => console.log('Error', err))
     
+  }
+
+  sendJsonData(){
+    this.userData.sendData(this.jsonData).subscribe(res=>{
+      console.log('Response', res)
+    }, err=> console.log('Error', err))
   }
 
 
