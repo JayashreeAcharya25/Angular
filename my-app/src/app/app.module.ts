@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DataComponent } from './modules/admin/components/data/data.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedService } from './shared.service';
+import * as AOS from 'aos';
 
 @NgModule({
   declarations: [
@@ -30,4 +31,6 @@ import { SharedService } from './shared.service';
   providers: [SharedService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }

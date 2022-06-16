@@ -1,16 +1,208 @@
 <div class="home-component">
-    <nav class="uk-navbar-container" uk-navbar>
-        <div class="uk-navbar-left">
 
-            <ul class="uk-navbar-nav">
-                <li><a class="uk-logo" routerLink="">Navbar</a></li>
-                <li><a class="uk-link" routerLink="login" routerLinkActive="active">Login</a></li>
-                <li><a class="uk-link"routerLink="signup" routerLinkActive="active">SignUp</a></li>
-            </ul>
-        </div>
+    <nav class="uk-navbar-container" uk-navbar>
+        <a class="uk-logo" routerLink="">NAVBAR</a>
+        <ul class="uk-navbar-nav">
+            <li><a class="uk-link" routerLink="home" routerLinkActive="active">Home</a></li>
+            <li><a class="uk-link" routerLink="about" routerLinkActive="active">About</a></li>
+            <li><a class="uk-link" routerLink="features" routerLinkActive="active">Features</a></li>
+            <li><a class="uk-link" routerLink="features" routerLinkActive="active">Contact</a></li>
+            <li><a class="uk-link" routerLink="login" routerLinkActive="active">Login</a></li>
+        </ul>
     </nav>
+
     <div class="main">
-        
+
+        <div class="main-banner">
+
+            <div class="uk-position-relative uk-light" tabindex="-1" uk-slider autoplay>
+
+                <ul class="uk-slider-items uk-grid">
+                    <li class="uk-width-5">
+                        <div class="uk-panel">
+                            <img src="../../../assets/banner-1.jpg" width="1800" height="1200" alt="">
+                            <div class="uk-position-center uk-text-center">
+                                <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
+                                <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="uk-width-5">
+                        <div class="uk-panel">
+                            <img src="../../../assets/banner-2.jpg" width="1800" height="1200" alt="">
+                            <div class="uk-position-center uk-text-center">
+                                <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
+                                <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="uk-width-5">
+                        <div class="uk-panel">
+                            <img src="../../../assets/banner-3.jpg" width="1800" height="1200" alt="">
+                            <div class="uk-position-center uk-text-center">
+                                <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
+                                <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="uk-width-5">
+                        <div class="uk-panel">
+                            <img src="../../../assets/banner-4.jpg" width="1800" height="1200" alt="">
+                            <div class="uk-position-center uk-text-center">
+                                <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
+                                <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="uk-width-5">
+                        <div class="uk-panel">
+                            <img src="../../../assets/banner-3.jpg" width="1800" height="1200" alt="">
+                            <div class="uk-position-center uk-text-center">
+                                <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
+                                <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+                    uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                    uk-slider-item="next"></a>
+
+
+            </div>
+        </div>
+        <div class="main-about">
+            <div class="uk-container">
+                <div class="column">
+                    <img src="../../../assets/about-us.png" alt="">
+                </div>
+                <div class="column">
+                    <h2>About Us</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam odio<br/> autem voluptatibus eum
+                        beatae, sint soluta, iusto fugit <br/> placeat ipsam iure perspiciatis deserunt atque voluptates!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-features">
+            <div class="uk-container">
+                <div class="heading">
+                    <h2>Features</h2>
+                </div>
+                <div class="features">
+                    <div class="column">
+                        <a href="" uk-icon="icon: flickr"></a>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste culpa quam deserunt optio
+                            repudiandae necessitatibus itaque deleniti laboriosam blanditiis officiis velit, libero
+                            molestias, ex officia!</p>
+                    </div>
+                    <div class="column">
+                        <a href="" uk-icon="icon: flickr"></a>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste culpa quam deserunt optio
+                            repudiandae necessitatibus itaque deleniti laboriosam blanditiis officiis velit, libero
+                            molestias, ex officia!</p>
+                    </div>
+                    <div class="column">
+                        <a href="" uk-icon="icon: flickr"></a>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste culpa quam deserunt optio
+                            repudiandae necessitatibus itaque deleniti laboriosam blanditiis officiis velit, libero
+                            molestias, ex officia!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-contact">
+            <div class="uk-container">
+                <div class="heading">
+                    <h2>Conatct Us</h2>
+                </div>
+                <div class="contact">
+                    <form action="">
+                        <div class="uk-margin">
+                            <input class="uk-input uk-form-width-medium" type="text" placeholder="Firstname"> &nbsp;
+                            <input class="uk-input uk-form-width-medium" type="text" placeholder="Lastname">
+                        </div>
+                        <div class="uk-margin">
+                            <input class="uk-input uk-form-width-medium" type="text" placeholder="Email"> &nbsp;
+                            <input class="uk-input uk-form-width-medium" type="text" placeholder="Phone number">
+                        </div>
+                        <div class="uk-margin">
+                            <button class="uk-button uk-button-default">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <div class="footer">
+        <div class="main-footer">
+            <div class="footer-header">
+                <div class="company_name">
+                    <h1><a href="" uk-icon="icon: gitter"></a> &nbsp;Company Name</h1>
+                </div>
+                <div class="social_media">
+                    <img src="../../../assets/social_icons/social_icon1.png" alt="Facebook">
+                    <img src="../../../assets/social_icons/social_icon2.png" alt="Instagram">
+                    <img src="../../../assets/social_icons/social_icon3.png" alt="Twitter">
+                    <img src="../../../assets/social_icons/social_icon4.png" alt="Pinterest">
+                    <img src="../../../assets/social_icons/social_icon5.png" alt="Github">
+                </div>
+            </div>
+            <hr>
+            <div class="footer-body">
+                <div class="footer-column">
+                    <div class="column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="">Application</a></li>
+                            <li><a href="">Documnetation</a></li>
+                            <li><a href="">Systems</a></li>
+                            <li><a href="">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Need Help?</h3>
+                        <ul>
+                            <li><a href="">Blog</a></li>
+                            <li><a href="">Pricing</a></li>
+                            <li><a href="">Customer Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="">About Us</a></li>
+                            <li><a href="">Features</a></li>
+                            <li><a href="">Clients</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Social</h3>
+                        <ul>
+                            <li><a href="">Twitter</a></li>
+                            <li><a href="">Facebook</a></li>
+                            <li><a href="">GitHub</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <div class="column">
+                        <p><a href="">1-800-600-0464</a></p>
+                        <p><a href="">support@example.com</a></p>
+                        <br>
+                        <p>288 Saint James Drive,<br> Harrisburg, PA, 17102</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-row">
+        <p>@ 2022. All Rights Reserved. </p>
+    </div>
 </div>

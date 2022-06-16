@@ -5,3 +5,8 @@
     height: 100vh;
     padding: 3rem 0;
 }
+
+.mail-components form{
+    margin: auto;
+    display: block;
+}

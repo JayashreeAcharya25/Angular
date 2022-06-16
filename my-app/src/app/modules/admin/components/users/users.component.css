@@ -11,10 +11,19 @@
 .user-components .user-section-header{
     width: 70%;
     margin: auto;
+    display: flex;
+    justify-content: space-between;
 }
 .user-components .user-section-header h2{
     color: #fff;
     font-family: 'Koulen', cursive;
+}
+.user-components .user-section-header .uk-button{
+    font-size: 12px;
+    padding: 10px 20px;
+    color: #fff;
+    height: 35px;
+    line-height: 0 !important;
 }
 .user-components .uk-table{
     width: 70%;

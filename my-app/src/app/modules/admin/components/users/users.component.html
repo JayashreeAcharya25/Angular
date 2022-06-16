@@ -2,6 +2,7 @@
     <div class="user-container">
         <div class="user-section-header">
             <h2>User List</h2>
+            <button class="uk-button uk-button-default" type="submit" (click)="sendJsonData()">Send JsonData</button>
         </div>
         <table class="uk-table uk-table-divider">
 
@@ -21,6 +22,7 @@
                 </tr>
 
             </tbody>
+            
         </table>
         <!-- This is the modal -->
         <div class="user-modal" id="modal-example" uk-modal>
@@ -54,8 +56,6 @@
             </div>
 
         </div>
-
-        <button class="uk-button uk-button-default" type="submit" (click)="sendJsonData()">Send JsonData</button>
 
     </div>
 </div>
