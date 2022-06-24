@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpParams } from '@angular/common/http';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { SharedService } from '../../shared-service.service'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-brand',
@@ -10,19 +11,55 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 export class BrandComponent implements OnInit {
 
-  formValue! : FormGroup
+  formValue!: FormGroup
 
-  constructor( ) { }
+  selectedFile!: any
 
-  ngOnInit(): void {
+  constructor( private api: SharedService, private formBuilder: FormBuilder) {
+    this.formValue = this.formBuilder.group({
+      b_slno: [''],
+      b_name: [''],
+      b_image: [null],
+    })
+   }
 
+  ngOnInit(): void {}
+
+  uploadFile(event: any){
+    this.selectedFile = event.target.files[0]
+    console.log(this.selectedFile)
   }
 
-  
 
-  addBrands(data: any){
-    console.log(data)
-    alert('Hello')
+
+  addBrands() {
+    
+
+    let formData = new FormData()
+
+    formData.append('b_slno', this.formValue.get('b_slno')?.value)
+    formData.append('b_name', this.formValue.get('b_name')?.value)
+    formData.append('b_image', this.selectedFile)
+    console.log(formData)
+
+    this.api
+      .addBrand(formData)
+      .subscribe(
+        response => {
+          Swal.fire({
+            title: 'Success',
+            text: 'Added successfully',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          });
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        }
+      )
+
   }
 
 }
+
