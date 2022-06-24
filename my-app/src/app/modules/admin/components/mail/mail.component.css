@@ -1,0 +1,12 @@
+.mail-components{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
+                url('../../../../../assets/background.jpg') no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding: 3rem 0;
+}
+
+.mail-components form{
+    margin: auto;
+    display: block;
+}

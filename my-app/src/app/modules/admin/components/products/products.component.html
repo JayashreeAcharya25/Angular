@@ -1,1 +1,52 @@
-<p>products works!</p>
+<div class="product-components">
+    <div class="uk-column-1-2">
+        <div class="column">
+            <form class="glass-effect" [formGroup]="formValue" (ngSubmit)="addProduct(formValue.value)" >
+                <h3>Products</h3>
+                <div class="uk-margin">
+                    <input class="uk-input uk-form-width-medium" formControlName="product_slno" type="text" placeholder="Product No.">
+                </div>
+                <div class="uk-margin">
+                    <input class="uk-input uk-form-width-medium" formControlName="product_name" type="text" placeholder="Product Name">
+                </div>
+                <!-- <div class="uk-margin">
+                    <input class="uk-input uk-form-width-medium" formControlName="product_image" type="file" (change)="onFileUpload($event)" placeholder="Image">
+                </div> -->
+                <div class="uk-margin">
+                    <input class="uk-input uk-form-width-medium" formControlName="product_image" type="text" placeholder="Product Image">
+                </div>
+                <div class="uk-margin">
+                    <input class="uk-input uk-form-width-medium" formControlName="product_price" type="text" placeholder="price">
+                </div>
+                
+                <button class="uk-button uk-button-default" type="submit">Add</button>
+            </form>
+        </div>
+        <div class="column">
+            <div class="column-container">
+                <table class="uk-table uk-table-divider">
+
+                    <thead>
+                        <tr>
+                            <th>Sl. No</th>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let products of product_list">
+                            <td>{{products.product_slno}}</td>
+                            <td>{{products.product_name}}</td>
+                            <td>{{products.product_image}}</td>
+                            <td>{{products.product_price}}</td>
+                            <td><a id="a" uk-icon="trash"></a></td>
+                        </tr>
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+.user-components{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
+                url('../../../../../assets/background.jpg') no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding: 3rem 0;
+}
+.user-components .user-section-header{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.user-components .user-section-header h2{
+    color: #fff;
+    font-family: 'Koulen', cursive;
+}
+.user-components .user-section-header .uk-button{
+    font-size: 12px;
+    padding: 10px 20px;
+    color: #fff;
+    height: 35px;
+    line-height: 0 !important;
+}
+.user-components .uk-table{
+    width: 70%;
+    margin: auto;
+    padding: 3rem 0;
+}
+
+.user-components .uk-table th{
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+}
+
+.user-components .uk-table td{
+    font-size: 14px;
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+}
+
+.user-components .uk-table td a{
+    color: #c9c9c9;
+}
+
+.user-components .uk-table td a:hover{
+    color: #fff;
+}
+
+.user-components .user-container .user-modal h3{
+    color: #292929;
+    font-family: 'Koulen', cursive;
+    font-size: 20px;
+}
+
+

@@ -8,6 +8,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { ProductsComponent } from './components/products/products.component';
+import { UsersComponent } from './components/users/users.component';
+import {FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { MailComponent } from './components/mail/mail.component';
 
 
 @NgModule({
@@ -18,10 +21,14 @@ import { ProductsComponent } from './components/products/products.component';
     HomeComponent,
     TodoComponent,
     ProductsComponent,
+    UsersComponent,
+    MailComponent,
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

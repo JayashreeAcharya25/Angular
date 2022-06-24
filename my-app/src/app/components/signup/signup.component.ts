@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,32 +11,32 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SignupComponent implements OnInit {
 
-  public signupForm !: FormGroup
+  signupForm! : FormGroup
+  users: any
 
-  constructor(  private router: Router, private formBuilder: FormBuilder, private http: HttpClient) { }
+  constructor(  private router: Router, private formBuilder: FormBuilder, private http: HttpClient, private userData: SharedService) { 
+    
+  }
 
   ngOnInit(): void {
-    this.signupForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required]
-    })
+
+    // this.userData.getUsers().subscribe((data => {
+    //   this.users = data;
+    //   console.log(this.users);
+    // }))
+    
   }
 
 
-  onSignup(){
-    // this.http.post<any>("http://localhost:4200", this.signupForm.value)
-    // .subscribe( res =>{
-    //   alert("User Created..")
-    //   this.signupForm.reset();
-    //   this.router.navigate(['login']);
-    //   console.log(res)
-    // }, err =>{
-    //   console.log(err)
-    // })
-    //this.signupForm.reset();
-    console.log(this.signupForm.value)
-    // alert("User Created..")
-    this.router.navigate(['login']);
+  register(data: any){
+    
+    // console.log(data);
+
+    this.userData.register(data).subscribe(res => {
+      alert("User Created..")
+      this.router.navigate(['login']);
+        console.log("Response",res);
+    }, err => console.log('Error',err)) 
+
   }
 }

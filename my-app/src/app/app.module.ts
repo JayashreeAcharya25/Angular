@@ -6,9 +6,11 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import {FormsModule,ReactiveFormsModule  } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { DataComponent } from './modules/admin/components/data/data.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedService } from './shared.service';
+import * as AOS from 'aos';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }
