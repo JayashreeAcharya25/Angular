@@ -1,0 +1,117 @@
+
+.admin-container .container {
+    border-radius: 6px;
+    box-shadow: 2px 3px 8px 1px #1f1f1f;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.071);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.admin-container h2 {
+    font-family: 'Joan', serif;
+    font-size: 35px;
+    color: #d8d8d8;
+    margin-bottom: 40px;
+}
+
+.admin-container .admin-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.admin-container .admin-header h3 {
+    font-family: 'Joan', serif;
+    color: #cbcbcb;
+    font-size: 17px;
+    word-spacing: 6px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.admin-container .admin-header a {
+    border-radius: 4px;
+    color: #caa202;
+    background: #232323;
+    border: 1px solid #caa202;
+    text-decoration: none;
+    padding: 5px 15px;
+    text-align: center;
+    float: right;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 14px;
+}
+
+/* .admin-container .admin-body{
+    padding: 0 30px 0 0;
+} */
+.admin-container .admin-body table thead tr{
+    border-bottom: 1px solid #8c8c8c;
+    border-top: 1px solid #8c8c8c;
+    
+}
+.admin-container .admin-body table th{
+    font-family: 'Cormorant Garamond',
+    serif;
+    text-transform: capitalize;
+    font-size: 16px;
+    color: #cbcbcb;
+    padding: 18px 12px;
+}
+.admin-container .admin-body table tbody tr{
+    border-top: none;
+}
+.admin-container .admin-body table td{
+    font-family: 'Joan', serif;
+    font-size: 14px;
+    color: #cbcbcb;
+    
+}
+
+.modal .uk-modal-title{
+    font-family: 'Cormorant Garamond',
+    serif;
+    font-size: 28px;
+}
+
+.modal .uk-form-label{
+    font-family: 'Joan', serif;
+    margin-bottom: 10px;
+}
+
+.modal .uk-form-controls{
+    margin-top: 10px;
+}
+
+.modal .uk-select,
+.modal .uk-input{
+    font-family: 'Joan', serif;
+    font-size: 13px;
+    height: 33px;
+}
+
+.modal .uk-modal-footer .uk-button{
+    margin: 0 5px;
+    background: #cfb53b;
+    border-radius: 4px;
+    color: #202026;
+    text-transform: capitalize;
+}
+
+.modal-grid-2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.modal-grid-3{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+
+

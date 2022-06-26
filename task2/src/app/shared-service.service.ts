@@ -12,6 +12,17 @@ export class SharedService {
 
   constructor(private http: HttpClient) { }
 
+  signUp(val: any){
+    return this.http
+      .post(this.APIUrl + '/user/register', val)
+  }
+
+  login(val: any){
+    return this.http
+      .post(this.APIUrl + '/user/login', val)
+  }
+
+
   addBrand(val: any) {
     return this.http
       .post(this.APIUrl + '/brand/addbrand', val)
@@ -20,5 +31,25 @@ export class SharedService {
   getBrand() {
     return this.http
       .get(this.APIUrl + '/brand/getbrand')
+  }
+
+  addCategory(val:any){
+    return this.http
+      .post(this.APIUrl + '/category/addcategory', val)
+  }
+
+  getCategory(){
+    return this.http
+      .get(this.APIUrl + '/category/getcategory')
+  }
+
+  addProduct(val:any){
+    return this.http
+      .post(this.APIUrl + '/product/addproduct', val)
+  }
+
+  getProduct(){
+    return this.http
+      .get(this.APIUrl + '/product/getproduct')
   }
 }

@@ -8,10 +8,9 @@ import { SharedService } from './shared-service.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { HomeComponent } from './components/home/home.component';
-import { CategoryComponent } from './components/category/category.component';
-import { BrandComponent } from './components/brand/brand.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -19,8 +18,8 @@ import { BrandComponent } from './components/brand/brand.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    CategoryComponent,
-    BrandComponent,
+    SignupComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
