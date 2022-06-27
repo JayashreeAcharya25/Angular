@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared-service.service';
 import Swal from 'sweetalert2';
 
@@ -14,37 +15,39 @@ export class LoginComponent implements OnInit {
 
   res_message: any;
   message: any;
+  userData: any = []
 
-  constructor(private formBuilder: FormBuilder, private api: SharedService) { 
+  constructor(private formBuilder: FormBuilder, private api: SharedService, private router: Router) {
     this.formValue = this.formBuilder.group({
       email: [''],
       password: [''],
     })
-   }
+  }
 
   ngOnInit(): void {
   }
 
-  login(){
+  login() {
     this.api
-    .login(this.formValue.value)
-    .subscribe(
-      response=>{
-        this.res_message = response
-            this.message = this.res_message.message
-            Swal.fire({
-              title: 'Success',
-              text: this.message,
-              icon: 'success',
-              confirmButtonText: 'Ok'
-            });
-            console.log(response);
-            
+      .login(this.formValue.value)
+      .subscribe((items: any) => {
+
+        this.userData = items;
+
+        Swal.fire({
+          title: 'Success',
+          text: items.message,
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        });
+
+        window.localStorage.setItem('token', items.jwt)
+        this.router.navigate(['/admin/home'])
       },
-      error =>{
-        console.log(error);
-      }
-    )
+        error => {
+          console.log(error);
+        }
+      )
   }
 
 }

@@ -22,6 +22,16 @@ export class SharedService {
       .post(this.APIUrl + '/user/login', val)
   }
 
+  user(){
+    return this.http
+      .get(this.APIUrl + '/user/getuser')
+  }
+
+  logout(val: any){
+    return this.http
+      .post(this.APIUrl + '/user/logout', val)
+  }
+
 
   addBrand(val: any) {
     return this.http
