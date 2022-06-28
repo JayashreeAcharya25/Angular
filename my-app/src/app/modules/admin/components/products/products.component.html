@@ -1,52 +1,80 @@
-<div class="product-components">
-    <div class="uk-column-1-2">
-        <div class="column">
-            <form class="glass-effect" [formGroup]="formValue" (ngSubmit)="addProduct(formValue.value)" >
-                <h3>Products</h3>
-                <div class="uk-margin">
-                    <input class="uk-input uk-form-width-medium" formControlName="product_slno" type="text" placeholder="Product No.">
-                </div>
-                <div class="uk-margin">
-                    <input class="uk-input uk-form-width-medium" formControlName="product_name" type="text" placeholder="Product Name">
-                </div>
-                <!-- <div class="uk-margin">
-                    <input class="uk-input uk-form-width-medium" formControlName="product_image" type="file" (change)="onFileUpload($event)" placeholder="Image">
-                </div> -->
-                <div class="uk-margin">
-                    <input class="uk-input uk-form-width-medium" formControlName="product_image" type="text" placeholder="Product Image">
-                </div>
-                <div class="uk-margin">
-                    <input class="uk-input uk-form-width-medium" formControlName="product_price" type="text" placeholder="price">
-                </div>
+<div class="table">
+    <h2 class="table_h2">Products</h2>
+    <table class="uk-table uk-table-divider">
+      
+      <thead *ngFor="let bu of business_unit">
+        
+        <tr class="thead__tr">
+            <th class="table_id"><strong>Bu_id: {{bu.bu_id}}</strong></th>
+        </tr>
+        <tr>
+            <td class="table_id"><strong>Name:</strong>&nbsp; {{bu.bu_name}} </td>
+            <td class="table_id"><strong>Email:</strong>&nbsp; {{bu.bu_email}} </td>
+            <td class="table_id"><strong>Contact:</strong>&nbsp; {{bu.bu_contact_name}}</td>
+        </tr>
+      
+        
+        <tr class="thead_tr">
+          <th>Product Id</th>
+          <th>Product Code</th>
+          <th>Product Name</th>
+          <th>Brand Id</th>
+          <th>MRP</th>
+          <th>Purchase price</th>
+          <th>Base price</th>
+          <th>Sale price</th>
+          <th>HSN</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+        <tbody>
+          
+            <tr *ngFor="let result of product_list">
+             
+              <td>{{ result.pro_id }} </td>
+              <td>{{ result.pro_code }} </td>
+              <td>{{ result.pro_name }} </td>
+              <td>{{ result.bra_id }} </td>
+              <td>{{ result.pro_mrp }} </td>
+              <td>{{ result.pro_purprice }} </td>
+              <td>{{ result.pro_baseprice }} </td>
+              <td>{{ result.pro_saleprice }} </td>
+              <td>{{ result.pro_hsn }} </td>
+              <td><button type="button" (click)="edit(result)" uk-toggle="target: #modal-center">Edit</button></td>
+            </tr>
+          
+        </tbody>
+    </table>
+    <!-- This is the modal -->
+    <div id="modal-center" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <form [formGroup]="formValue" (ngSubmit)="onUpdate()" >
+                <div class="container">
                 
-                <button class="uk-button uk-button-default" type="submit">Add</button>
+                    <div class="uk-margin">
+                        <input class="uk-input" type="text" formControlName="pro_id">
+                        <input class="uk-input" type="text" formControlName="pro_code">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input" type="text" formControlName="pro_name">
+                        <input class="uk-input" type="text" formControlName="bra_id">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input" type="text" formControlName="pro_mrp">
+                        <input class="uk-input" type="text" formControlName="pro_purprice">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input" type="text" formControlName="pro_baseprice">
+                        <input class="uk-input" type="text" formControlName="pro_saleprice">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input" type="text" formControlName="pro_hsn">
+                    </div>
+                    
+                </div>
+                <button class="uk-button uk-button-primary" type="submit">Update</button>
             </form>
         </div>
-        <div class="column">
-            <div class="column-container">
-                <table class="uk-table uk-table-divider">
-
-                    <thead>
-                        <tr>
-                            <th>Sl. No</th>
-                            <th>Name</th>
-                            <th>Image</th>
-                            <th>Price</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let products of product_list">
-                            <td>{{products.product_slno}}</td>
-                            <td>{{products.product_name}}</td>
-                            <td>{{products.product_image}}</td>
-                            <td>{{products.product_price}}</td>
-                            <td><a id="a" uk-icon="trash"></a></td>
-                        </tr>
-        
-                    </tbody>
-                </table>
-            </div>
-        </div>
     </div>
-</div>
+<div>
+

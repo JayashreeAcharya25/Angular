@@ -36,7 +36,7 @@
 }
 .section-form{
     background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), 
-                url('../../../assets/content-banner.jpg') no-repeat;
+                url('../../../../../assets/content-banner.jpg') no-repeat;
     background-size: cover;
     height: 100vh;
 }
@@ -60,7 +60,7 @@
     border-top: none;
     border-right: none;
     border-left: none;
-    border-bottom: 1px solid #bda434;
+    border-bottom: 1px solid #ffdb39;
 }
 .section-form form .uk-input::placeholder{
     color: #b9b9b9;
@@ -69,7 +69,7 @@
 
 .section-form form .uk-button{
     color: #0b0b0b;
-    background: #bda434;
+    background: #ffdb39;
     border-radius: 4px;
     text-transform: capitalize;
     font-family: 'Joan', serif;

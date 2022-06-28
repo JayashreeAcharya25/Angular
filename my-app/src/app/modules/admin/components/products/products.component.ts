@@ -2,6 +2,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { SharedService } from 'src/app/shared.service';
+import {ProductModel} from './product.model'
 
 @Component({
   selector: 'app-products',
@@ -10,74 +11,76 @@ import { SharedService } from 'src/app/shared.service';
 })
 
 export class ProductsComponent implements OnInit {
- 
-  product_list: any;
 
-  product_slno: any;
-  product_name: any;
-  // product_image: any;
-  product_price: any;
-  currentUpload: any;
+  formValue!: FormGroup
 
-  formValue! : FormGroup
+  array_list: any = []
+  business_unit: any = []
+  product_list: any = [];
+  productObjModel: ProductModel = new ProductModel()
 
-  constructor( private formBuilder: FormBuilder, private Products: SharedService) { }
+  // product_slno: any;
+  // product_name: any;
+  // // product_image: any;
+  // product_price: any;
+  // currentUpload: any;
+
+  // formValue! : FormGroup
+
+  constructor( private formBuilder: FormBuilder, private api: SharedService) { }
 
   ngOnInit(): void {
 
-    this.Products.getProducts().subscribe(res =>{
-      this.product_list = res;
-      console.log(this.product_list);
+    this.api.getProducts().subscribe((res: any) =>{
+      
+      this.product_list = res.products
+      this.business_unit = res.business_unit
+      console.log("Products",this.product_list);
+      console.log("Business Unit",this.business_unit);
     })
 
     this.formValue = this.formBuilder.group({
-      product_slno: [''],
-      product_name: [''],
-      product_image: [''],
-      product_price: ['']
+      pro_id: [''],
+      pro_code: [''],
+      pro_name: [''],
+      bra_id: [''],
+      pro_mrp: [''],
+      pro_purprice: [''],
+      pro_baseprice: [''],
+      pro_saleprice: [''],
+      pro_hsn: [''],
     })
 
   }
 
-  // onFileUpload(event: any){
-  //   this.product_image = event.target.files[0]
-  //   console.log(this.product_image);
-  // }
+  edit(row: any){
+    this.productObjModel.pro_id = row.pro_id;
+    console.log(row.pro_id)
 
-  addProduct(formValue: any){
-    
-
-
-    // let formData = new FormData();
-
-    // this.product_image = event.target.files;
-    // console.log(event.target.files);
-    // this.currentUpload = this.product_image.item(0)
-
-    // for (let i = 0; i < formValue.length; i++) {
-      // formData.append('product_slno', formValue.product_slno);
-      // formData.append('product_name', formValue.roduct_name);
-      // formData.append('product_image', formValue.product_image);
-      // formData.append('product_price', formValue.product_price);
-    // }
-
-      console.log(formValue);
-      // formData.forEach((value,key) => {
-      //   console.log(key+" "+value)
-      // });
-      // console.log(formValue.length);
-
-
-      // const headers = new HttpHeaders().set('Content-Type', 'multipart/form-data');
-        // headers.append('Content-Type', 'multipart/form-data');
-        // headers.append('Accept', 'application/json');
-
-    // const newLocal = 'media';
-    this.Products.addProducts(formValue).subscribe(res =>{
-      alert("Added");
-      console.log(res);
-    }, error => console.log(error))
+    this.formValue.controls['pro_id'].setValue(row.pro_id)
+    this.formValue.controls['pro_code'].setValue(row.pro_code)
+    this.formValue.controls['pro_name'].setValue(row.pro_name)
+    this.formValue.controls['bra_id'].setValue(row.bra_id)
+    this.formValue.controls['pro_mrp'].setValue(row.pro_mrp)
+    this.formValue.controls['pro_purprice'].setValue(row.pro_purprice)
+    this.formValue.controls['pro_baseprice'].setValue(row.pro_baseprice)
+    this.formValue.controls['pro_saleprice'].setValue(row.pro_saleprice)
+    this.formValue.controls['pro_hsn'].setValue(row.pro_hsn)
   }
 
+  onUpdate(){
+    console.log(this.formValue.value)
+    this.api
+      .updateProduct(this.formValue.value)
+      .subscribe(
+        response =>{
+          console.log(response)
+        },
+        error =>{
+          console.log(error)
+        }
+      )
+
+  }
 
 }

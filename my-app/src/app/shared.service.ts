@@ -48,6 +48,10 @@ export class SharedService {
     return this.http.get(this.APIUrl + `/products/product`);
   }
 
+  updateProduct(val: any){
+    return this.http.post(this.APIUrl + '/products/update', val)
+  }
+
   sendMail(val: any, jsonData: any){
     return this.http.post(this.APIUrl + '/mail/sendMail', val, jsonData);
   }

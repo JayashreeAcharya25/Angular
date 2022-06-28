@@ -1,58 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
 
-.glass-effect{
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.product-components{
-    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
-                url('../../../../../assets/background.jpg') no-repeat;
-    background-size: cover;
+.table{
+    margin: 20px 50px;
     height: 100vh;
-    padding: 3rem 0;
 }
-
-.product-components .uk-column-1-2{
-    padding: 0 10%;
-    height: 500px;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.product-components .uk-column-1-2 .column:nth-child(1){
-    
-}
-
-.product-components .uk-column-1-2 .column:nth-child(1) form{
-    padding: 20px 30px;
-    width: 100%;
-}
-
-.product-components .uk-column-1-2 .column:nth-child(1) form input{
-    margin: 30px auto;
-    display: block;
-    height: 35px;
-    border-radius: 6px;
-
-}
-
-.product-components .uk-column-1-2 h3{
-    color: #fff;
-    font-family: 'Koulen', cursive;
-    font-size: 30px;
+.table .table_h2{
+    font-size: 40px;
+    font-family: 'Joan', serif;
     text-align: center;
 }
+.thead_tr th{
+    font-weight: 600;
+    color: #000;
+}
+.table .table_id{
+    color: #3f3f3f;
+}
+tbody{
+    height: 500px;
+}
+strong{
+    font-weight: 600;
+    color: #272727;
+}
+.thead__tr{
+    font-family: 'Joan', serif;
+}
 
-.product-components .uk-column-1-2 button{
-    margin: auto;
-    display: block;
-    color: #fff;
-    padding: 16px 40px;
-    line-height: 0px;
+
+.container .uk-margin{
+    margin: auto 0;
+    display: flex;
+    justify-content: space-evenly;
 }
