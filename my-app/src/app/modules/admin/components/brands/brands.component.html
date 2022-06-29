@@ -1,0 +1,77 @@
+<div class="table">
+    <h2 class="table_h2">Brands</h2>
+    <table class="uk-table uk-table-divider">
+      
+      <thead *ngFor="let bu of business_unit">
+        
+        <tr class="thead__tr">
+            <th class="table_id"><strong>Bu_id: {{bu.bu_id}}</strong></th>
+        </tr>
+        <tr>
+            <td class="table_id"><strong>Name:</strong>&nbsp; {{bu.bu_name}} </td>
+            <td class="table_id"><strong>Email:</strong>&nbsp; {{bu.bu_email}} </td>
+            <td class="table_id"><strong>Contact:</strong>&nbsp; {{bu.bu_contact_name}}</td>
+        </tr>
+      
+        
+        <tr class="thead_tr">
+          <th>Brand Id</th>
+          <th>Brand Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>BE Id</th>
+          <th>Client Id</th>
+        </tr>
+      </thead>
+        <tbody>
+            <tr *ngFor="let result of brand_list">
+              <td>{{ result.bra_id }} </td>
+              <td>{{ result.bra_name }} </td>
+              <td>{{ result.bra_start_date }} </td>
+              <td>{{ result.bra_end_date }} </td>
+              <td>{{ result.be_id }} </td>
+              <td>{{ result.client_users_id }} </td>
+              <td><button type="button" (click)="edit(result)" uk-toggle="target: #modal-center">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- This is the modal -->
+    <div id="modal-center" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <form [formGroup]="formValue" (ngSubmit)="onUpdate()" >
+                <div class="container">
+                    
+                    <div class="display-flex">
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-stacked-text">Brand Id</label>
+                            <input class="uk-input" type="text" formControlName="bra_id">
+                        </div>
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-stacked-text">Brand Sname</label>
+                            <input class="uk-input" type="text" formControlName="bra_sname">
+                        </div>
+                    </div>
+                    <div class="display-flex">
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-stacked-text">Brand Name</label>
+                            <input class="uk-input" type="text" formControlName="bra_name">
+                        </div>
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-stacked-text">Be Id</label>
+                            <input class="uk-input" type="text" formControlName="be_id">
+                        </div>
+                    </div>
+                   <div class="display-flex">
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text">Client Users Id</label>
+                        <input class="uk-input" type="text" formControlName="client_users_id">
+                    </div>
+                   </div>
+                    
+                </div>
+                <button class="uk-button uk-button-primary" type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+<div>
+

@@ -52,6 +52,14 @@ export class SharedService {
     return this.http.post(this.APIUrl + '/products/update', val)
   }
 
+  getBrands(){
+    return this.http.get(this.APIUrl + `/brands/brand`);
+  }
+
+  updateBrands(val: any){
+    return this.http.post(this.APIUrl + '/brands/update', val)
+  }
+
   sendMail(val: any, jsonData: any){
     return this.http.post(this.APIUrl + '/mail/sendMail', val, jsonData);
   }

@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
+
+.table{
+    margin: 20px 50px;
+    height: 100vh;
+}
+.table .table_h2{
+    font-size: 40px;
+    font-family: 'Joan', serif;
+    text-align: center;
+}
+.thead_tr th{
+    font-weight: 600;
+    color: #000;
+}
+.table .table_id{
+    color: #3f3f3f;
+}
+tbody{
+    height: 500px;
+}
+strong{
+    font-weight: 600;
+    color: #272727;
+}
+.thead__tr{
+    font-family: 'Joan', serif;
+}
+
+
+.container .display-flex{
+    margin: auto 0;
+    display: flex;
+    justify-content: space-evenly;
+}

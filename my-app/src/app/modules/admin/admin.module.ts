@@ -11,6 +11,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { UsersComponent } from './components/users/users.component';
 import {FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { MailComponent } from './components/mail/mail.component';
+import { BrandsComponent } from './components/brands/brands.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MailComponent } from './components/mail/mail.component';
     ProductsComponent,
     UsersComponent,
     MailComponent,
+    BrandsComponent,
   ],
   imports: [
     CommonModule,
