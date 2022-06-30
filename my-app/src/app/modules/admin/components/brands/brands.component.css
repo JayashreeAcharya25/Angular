@@ -10,7 +10,7 @@
     text-align: center;
 }
 .thead_tr th{
-    font-weight: 600;
+    font-weight: 500;
     color: #000;
 }
 .table .table_id{
@@ -20,16 +20,30 @@ tbody{
     height: 500px;
 }
 strong{
-    font-weight: 600;
+    font-weight: 500;
     color: #272727;
 }
 .thead__tr{
     font-family: 'Joan', serif;
 }
 
+.uk-modal-title, label{
+    font-family: 'Joan', serif;
+}
 
 .container .display-flex{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    margin-bottom: 20px;
+}
+
+.container .column{
+    margin-top: auto;
+    margin-bottom: auto;
+    display: block;
+}
+.container .uk-margin:nth-child(2){
     margin: auto 0;
-    display: flex;
-    justify-content: space-evenly;
+    margin-top: 0 !important;
 }

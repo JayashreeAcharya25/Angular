@@ -11,6 +11,11 @@ import { DataComponent } from './modules/admin/components/data/data.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedService } from './shared.service';
 import * as AOS from 'aos';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,11 @@ import * as AOS from 'aos';
     FormsModule,
     RouterModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

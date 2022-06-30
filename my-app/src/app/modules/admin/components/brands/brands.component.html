@@ -16,6 +16,7 @@
         
         <tr class="thead_tr">
           <th>Brand Id</th>
+          <th>Brand sName</th>
           <th>Brand Name</th>
           <th>Start Date</th>
           <th>End Date</th>
@@ -26,51 +27,74 @@
         <tbody>
             <tr *ngFor="let result of brand_list">
               <td>{{ result.bra_id }} </td>
+              <td>{{ result.bra_sname }} </td>
               <td>{{ result.bra_name }} </td>
               <td>{{ result.bra_start_date }} </td>
               <td>{{ result.bra_end_date }} </td>
               <td>{{ result.be_id }} </td>
               <td>{{ result.client_users_id }} </td>
-              <td><button type="button" (click)="edit(result)" uk-toggle="target: #modal-center">Edit</button></td>
+              <td><button class="uk-button" type="button" (click)="edit(result)" uk-toggle="target: #modal-center">Edit</button></td>
             </tr>
         </tbody>
     </table>
     <!-- This is the modal -->
     <div id="modal-center" class="uk-flex-top" uk-modal>
         <div class="uk-modal-dialog uk-modal-body">
-            <form [formGroup]="formValue" (ngSubmit)="onUpdate()" >
-                <div class="container">
-                    
-                    <div class="display-flex">
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="form-stacked-text">Brand Id</label>
-                            <input class="uk-input" type="text" formControlName="bra_id">
+            <button class="uk-modal-close-default" #ukclose type="button" uk-close></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title">Update Brand</h2>
+            </div>
+            <div class="uk-modal-body">
+                <form [formGroup]="formValue" (ngSubmit)="onUpdate()" >
+                    <div class="container">
+                        
+                        <div class="display-flex">
+                            <div class="column">
+                                <label class="uk-form-label" for="form-stacked-text">Brand Id</label>
+                                <input class="uk-input" type="text" formControlName="bra_id">
+                            </div>
+                            <div class="column">
+                                <label class="uk-form-label" for="form-stacked-text">Brand Sname</label>
+                                <input class="uk-input" type="text" formControlName="bra_sname">
+                            </div>
                         </div>
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="form-stacked-text">Brand Sname</label>
-                            <input class="uk-input" type="text" formControlName="bra_sname">
+                        <div class="display-flex">
+                            <div class="column">
+                                <label class="uk-form-label" for="form-stacked-text">Brand Name</label>
+                                <input class="uk-input" type="text" formControlName="bra_name">
+                            </div>
+                            <div class="column">
+                                <label class="uk-form-label" for="form-stacked-text">Be Id</label>
+                                <input class="uk-input" type="text" formControlName="be_id">
+                            </div>
                         </div>
+                       <div class="display-flex">
+                        <!-- <div class="column">
+                            <label class="uk-form-label" for="form-stacked-text">Start Date</label>
+                           
+                              <mat-form-field appearance="outline" style="width: 100%">
+
+                                <input matInput [matDatepicker]="picker" panelWidth="auto"
+                        
+                                formControlName="bra_start_date">
+                        
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        
+                                <mat-datepicker #picker></mat-datepicker>
+                        
+                            </mat-form-field>
+                        </div> -->
+                        <div class="column">
+                            <label class="uk-form-label" for="form-stacked-text">Client Users Id</label>
+                            <input class="uk-input" type="text" formControlName="client_users_id">
+                        </div>
+                       </div>
+                        
                     </div>
-                    <div class="display-flex">
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="form-stacked-text">Brand Name</label>
-                            <input class="uk-input" type="text" formControlName="bra_name">
-                        </div>
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="form-stacked-text">Be Id</label>
-                            <input class="uk-input" type="text" formControlName="be_id">
-                        </div>
-                    </div>
-                   <div class="display-flex">
-                    <div class="uk-margin">
-                        <label class="uk-form-label" for="form-stacked-text">Client Users Id</label>
-                        <input class="uk-input" type="text" formControlName="client_users_id">
-                    </div>
-                   </div>
-                    
-                </div>
-                <button class="uk-button uk-button-primary" type="submit">Update</button>
-            </form>
+                    <button class="uk-button uk-button-primary" type="submit">Update</button>
+                </form>
+            </div>
+           
         </div>
     </div>
 <div>

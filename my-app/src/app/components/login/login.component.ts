@@ -41,11 +41,11 @@ export class LoginComponent implements OnInit {
 
 
 
-    this.userData.login(data).subscribe(res =>{
-      alert("Login Success!!")
-      console.log(res);
-      this.router.navigate(['admin/home']);
-    })
+    // this.userData.login(data).subscribe(res =>{
+    //   alert("Login Success!!")
+    //   console.log(res);
+    //   this.router.navigate(['admin/home']);
+    // })
   }
 
 }

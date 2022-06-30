@@ -12,6 +12,11 @@ import { UsersComponent } from './components/users/users.component';
 import {FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { MailComponent } from './components/mail/mail.component';
 import { BrandsComponent } from './components/brands/brands.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -30,7 +35,11 @@ import { BrandsComponent } from './components/brands/brands.component';
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule 
   ]
 })
 export class AdminModule { }
