@@ -68,7 +68,10 @@ export class BrandsComponent implements OnInit {
     this.data = {
       formValue: this.formValue.value,
       bu_id: this.business_unit[0].bu_id,
-      bu_dbname: this.business_unit[0].bu_dbname
+      bu_dbname: this.business_unit[0].bu_dbname,
+      bu_host_name: this.business_unit[0].bu_host_name,
+      bu_db_user_name: this.business_unit[0].bu_db_user_name,
+      bu_db_password: this.business_unit[0].bu_db_password,
     }
     console.log(this.data)
 
@@ -85,7 +88,7 @@ export class BrandsComponent implements OnInit {
           })
 
           this.ukclose.nativeElement.click()
-          
+          window.location.reload();
           console.log(response)
 
         },
