@@ -17,9 +17,9 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let res of brands">
-                            <td>{{res.b_slno}}</td>
-                            <td>{{res.b_name}}</td>
-                            <td><img src={{res.b_image}} alt="image"></td>
+                            <td>{{res.brand_slno}}</td>
+                            <td>{{res.brand_name}}</td>
+                            <td><img src={{res.brand_image}} alt="image"></td>
                         </tr>
                        
                     </tbody>
@@ -29,7 +29,7 @@
         <div id="modal-center" class="uk-flex-top modal" uk-modal>
             <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 
-                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <button #ukclose class="uk-modal-close-default" type="button" uk-close></button>
 
                 <div class="uk-modal-header">
                     <h3 class="uk-modal-title">Add Brands</h3>
@@ -39,14 +39,14 @@
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-text">Sl. No</label>
                             <div class="uk-form-controls">
-                                <input class="uk-input" formControlName="b_slno" id="form-horizontal-text"
+                                <input class="uk-input" formControlName="brand_slno" id="form-horizontal-text"
                                     type="text" placeholder="Enter Sl. No">
                             </div>
                         </div>
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-text">Brand Name</label>
                             <div class="uk-form-controls">
-                                <input class="uk-input" formControlName="b_name" id="form-horizontal-text"
+                                <input class="uk-input" formControlName="brand_name" id="form-horizontal-text"
                                     type="text" placeholder="Enter Brand Name">
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-text">Upload Image</label>
                             <div class="uk-form-controls">
-                                <input class="uk-input" formControlName="b_image" id="form-horizontal-text"
+                                <input class="uk-input" formControlName="brand_image" id="form-horizontal-text"
                                     type="file" placeholder="Upload Image" accept="*png,jpg"
                                     (change)="uploadFile($event)">
                             </div>

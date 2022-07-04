@@ -24,7 +24,8 @@
 }
 
 .side-nav .left_area h3 {
-    color: #232323;
+    /* color: #232323; */
+    color: #f3f3f3;
     font-family: 'Cormorant Garamond',
     serif;
     letter-spacing: 2px;
@@ -38,7 +39,8 @@
 }
 
 .side-nav .left_area span {
-    color: #232323;
+    /* color: #232323; */
+    color: #f3f3f3;
     font-family: 'Cormorant Garamond',
     serif;
     letter-spacing: 2px;
@@ -52,7 +54,7 @@
     padding-bottom: 3px;
     padding-left: 7px;
     padding-right: 7px;
-    background: #cfb53b;
+    background: #7a0459;
     text-decoration: none;
     float: right;
     margin-top: -35px;
@@ -72,8 +74,8 @@
 
 .side-nav .sidebar {
     /* background: #520371; */
-    /* background: #7a0459; */
-    background: #ffdb39;
+    background: #7a0459;
+    /* background: #ffdb39; */
     background-size: cover;
     padding-top: 30px;
     position: fixed;
@@ -107,8 +109,8 @@
     border-top: 1px solid #585858;
 }
 .side-nav .sidebar a {
-    color: #202026;
-    
+    /* color: #202026; */
+    color: #ebebeb;
     display: block;
     width: 100%;
     letter-spacing: 1px;
@@ -119,11 +121,11 @@
 }
 
 .side-nav .sidebar a:hover {
-    color: #cfb53b;
+    color: #ebebeb;
     transition: 0.5s ease-in-out;
    
-    border-right: 5px solid #cfb53b;
-    border-left: 5px solid #cfb53b;
+    border-right: 5px solid #7a0459;
+    border-left: 5px solid #7a0459;
     background: #202026;
 }
 
@@ -134,7 +136,7 @@
 
 .side-nav .sidebar a span{
     font-size: 13px;
-    font-weight: 600;
+    
     padding-top: 10px;
     text-align: center;
 }
@@ -166,7 +168,7 @@
 }
 
 .side-nav label #sidebar_btn:hover {
-    color: #cfb53b;
+    color: #7a0459;
 }
 
 .side-nav #check:checked ~ .sidebar {

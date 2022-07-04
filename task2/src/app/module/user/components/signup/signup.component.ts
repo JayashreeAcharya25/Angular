@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit {
               confirmButtonText: 'Ok'
             });
             console.log(response);
-            // this.router.navigate(['login'])
+            this.router.navigate(['login'])
       },
       error =>{
         console.log(error);

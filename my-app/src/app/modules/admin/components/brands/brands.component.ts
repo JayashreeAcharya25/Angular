@@ -83,13 +83,12 @@ export class BrandsComponent implements OnInit {
 
           Swal.fire({
             icon: 'success',
-            title: response.message,
-            timer: 2000
+            title: "Updated Successfully!!",
           })
 
           this.ukclose.nativeElement.click()
-          window.location.reload();
-          console.log(response)
+          // window.location.reload();
+          window.setTimeout(function(){location.reload()}, 1000)
 
         },
         error =>{

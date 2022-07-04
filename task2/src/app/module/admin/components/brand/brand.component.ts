@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { SharedService } from 'src/app/shared-service.service';
 import Swal from 'sweetalert2';
@@ -11,18 +11,18 @@ import Swal from 'sweetalert2';
 
 export class BrandComponent implements OnInit {
 
-  formValue!: FormGroup
-  res_message: any;
-  message: any;
+  @ViewChild('ukclose') ukclose: any
+
+  formValue: FormGroup
   selectedFile!: any
   get_res_data: any
   brands: any
 
   constructor( private api: SharedService, private formBuilder: FormBuilder) {
     this.formValue = this.formBuilder.group({
-      b_slno: [''],
-      b_name: [''],
-      b_image: [null],
+      brand_slno: [''],
+      brand_name: [''],
+      brand_image: [null],
     })
    }
 
@@ -50,26 +50,27 @@ export class BrandComponent implements OnInit {
 
   addBrands() {
 
-    let formData = new FormData()
+    const formData = new FormData();
+    console.log(this.formValue)
 
-    formData.append('b_slno', this.formValue.get('b_slno')?.value)
-    formData.append('b_name', this.formValue.get('b_name')?.value)
-    formData.append('b_image', this.selectedFile)
-    console.log(formData)
+    formData.append('brand_slno', this.formValue.get('brand_slno')?.value);
+    formData.append('brand_name', this.formValue.get('brand_name')?.value);
+    formData.append('brand_image', this.selectedFile)
+    
 
     this.api
         .addBrand(formData)
         .subscribe(
-          response => {
-            this.res_message = response
-            this.message = this.res_message.message
+          (response: any) => {
+            
             Swal.fire({
-              title: 'Success',
-              text: this.message,
               icon: 'success',
-              confirmButtonText: 'Ok'
+              title: response.message,
             });
             console.log(response);
+
+            // window.setTimeout(function(){location.reload()}, 1000)
+            
           },
           error => {
             console.log(error);

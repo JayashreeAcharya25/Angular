@@ -33,9 +33,9 @@
 
 .admin-container .admin-header a {
     border-radius: 4px;
-    color: #caa202;
-    background: #232323;
-    border: 1px solid #caa202;
+    color: #ebebeb;
+    background: #7a0459;
+    border: 1px solid #7a0459;
     text-decoration: none;
     padding: 5px 15px;
     text-align: center;
@@ -43,6 +43,7 @@
     margin-top: auto;
     margin-bottom: auto;
     font-size: 14px;
+    font-weight: 500;
 }
 
 /* .admin-container .admin-body{
@@ -95,9 +96,9 @@
 
 .modal .uk-modal-footer .uk-button{
     margin: 0 5px;
-    background: #ffdb39;
+    background: #7a0459;
     border-radius: 4px;
-    color: #202026;
+    color: #ebebeb;
     text-transform: capitalize;
 }
 
@@ -113,5 +114,14 @@
     grid-gap: 20px;
 }
 
+.swal2-title{
+    font-size: 20px;
+    font-family: 'Joan', serif;
+    font-weight: 500;
+}
 
+.swal2-actions .swal2-styled.swal2-confirm{
+    background: #7a0459;
+    color: #ebebeb;
+}
 

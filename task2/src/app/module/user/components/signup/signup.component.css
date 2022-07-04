@@ -36,7 +36,7 @@
 }
 .section-form{
     background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), 
-                url('/src/assets/content-banner.jpg') no-repeat;
+                url('../../../../../assets/content-banner.jpg') no-repeat;
     background-size: cover;
     height: 100vh;
 }
