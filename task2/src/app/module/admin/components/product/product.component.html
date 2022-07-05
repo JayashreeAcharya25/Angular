@@ -35,10 +35,9 @@
     </div>
     <div id="modal-center" class="uk-flex-top modal" uk-modal>
       <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
-
         <div class="uk-modal-header">
           <h3 class="uk-modal-title">Add Product</h3>
+          <button class="uk-modal-close-default" type="button" uk-close></button>
         </div>
         <div class="uk-modal-body">
           <form [formGroup]="formValue" (ngSubmit)="addProducts()">

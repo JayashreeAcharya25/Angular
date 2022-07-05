@@ -10,6 +10,7 @@ import * as JsonData from './data.json'
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  
   formValue!: FormGroup;
   userModelObj : UserModel = new UserModel();
 

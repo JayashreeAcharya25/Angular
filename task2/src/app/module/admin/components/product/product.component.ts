@@ -13,16 +13,8 @@ export class ProductComponent implements OnInit {
   formValue!: FormGroup
   selectedFile: any
 
-  res_message: any;
-  message: any;
-
-  get_brand: any
   brands: any
-
-  get_category: any
   categories:any
-
-  get_product: any
   products:any
 
   pro_color: any = 1
@@ -48,40 +40,23 @@ export class ProductComponent implements OnInit {
     this.api
         .getBrand()
         .subscribe(
-          response=>{
-            this.get_brand = response
-            this.brands = this.get_brand.data
-            console.log(this.brands)
-          },
-          error =>{
-            console.log(error)
-          }
+          (response: any) => this.brands = response.data,
+          error => console.log(error)
         )
 
     this.api
       .getCategory()
       .subscribe(
-        response=>{
-          this.get_category = response
-          this.categories = this.get_category.data
-          console.log(this.categories)
-        },
-        error =>{
-          console.log(error)
-        }
+        (response: any) => this.categories = response.data,
+        error => console.log(error)
       )
 
     this.api
       .getProduct()
       .subscribe(
-        response=>{
-          this.get_product = response
-          this.products = this.get_product.data
-          console.log(this.products)
-        },
-        error =>{
-          console.log(error)
-        }
+        (response: any) => this.products = response.data,
+        error => console.log(error)
+        
       )
   }
 
@@ -109,20 +84,16 @@ export class ProductComponent implements OnInit {
     this.api
         .addProduct(formData)
         .subscribe(
-          response => {
-            this.res_message = response
-            this.message = this.res_message.message
+          (response: any) => {
             Swal.fire({
-              title: 'Success',
-              text: this.message,
               icon: 'success',
-              confirmButtonText: 'Ok'
+              title: response.message,
             });
             console.log(response);
           },
-          error => {
-            console.log(error);
-          }
+          error => 
+            console.log(error)
+          
         )
   }
 

@@ -1,0 +1,41 @@
+.slide {
+    width: 100vw;
+    height: 95vh;
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 419vw;
+    transform: rotate(90deg) translateY(-95vh);
+    transform-origin: top left;
+  }
+  .one {
+    background: #efdefe;
+  }
+  .two {
+    background: #a3f3d3;
+  }
+  .three {
+    background: #0bbaa0;
+  }
+  .four {
+    background: #00dfdf;
+  }
+
+  .outer-wrapper {
+    width: 86vh;
+    height: 100vw;
+    transform: rotate(-90deg) translateX(-86vh);
+    transform-origin: top left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  ::-webkit-scrollbar {
+    display:none;
+  }
+  
+
+  

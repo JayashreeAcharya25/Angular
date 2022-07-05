@@ -17,9 +17,9 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let res of categories">
-                            <td>{{res.c_slno}}</td>
-                            <td>{{res.c_name}}</td>
-                            <td>{{res.c_brand}}</td>
+                            <td>{{res.cat_slno}}</td>
+                            <td>{{res.cat_name}}</td>
+                            <td>{{res.cat_brand}}</td>
                         </tr>
                        
                     </tbody>
@@ -39,19 +39,19 @@
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-text">Sl. No</label>
                             <div class="uk-form-controls">
-                                <input class="uk-input" formControlName="c_slno" id="form-horizontal-text" type="text" placeholder="Enter Sl. No">
+                                <input class="uk-input" formControlName="cat_slno" id="form-horizontal-text" type="text" placeholder="Enter Sl. No">
                             </div>
                         </div>
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-text">Category Name</label>
                             <div class="uk-form-controls">
-                                <input class="uk-input" formControlName="c_name" id="form-horizontal-text" type="text" placeholder="Enter Sl. No">
+                                <input class="uk-input" formControlName="cat_name" id="form-horizontal-text" type="text" placeholder="Enter Sl. No">
                             </div>
                         </div>
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-text">Select Brand</label>
                             <div class="uk-form-controls">
-                                <select class="uk-select" id="form-horizontal-select" formControlName="c_brand" >
+                                <select class="uk-select" id="form-horizontal-select" formControlName="cat_brand" >
                                     <option>Select Brands</option>
                                     <option *ngFor="let brand of brands" value={{brand.id}}>{{brand.b_name}}</option>
                                 </select>

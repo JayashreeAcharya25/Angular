@@ -11,18 +11,15 @@ import Swal from 'sweetalert2';
 export class CategoryComponent implements OnInit {
 
   formValue!: FormGroup
-  res_message: any;
-  message: any;
-  get_brand: any
-  get_category: any
+
   brands: any
   categories: any
 
   constructor(private api: SharedService, private formBuilder: FormBuilder) { 
     this.formValue = this.formBuilder.group({
-      c_slno: [''],
-      c_name: [''],
-      c_brand: [''],
+      cat_slno: [''],
+      cat_name: [''],
+      cat_brand: [''],
     })
   }
 
@@ -31,9 +28,8 @@ export class CategoryComponent implements OnInit {
     this.api
         .getBrand()
         .subscribe(
-          response=>{
-            this.get_brand = response
-            this.brands = this.get_brand.data
+          (response: any)=>{
+            this.brands = response.data
             console.log(this.brands)
           },
           error =>{
@@ -44,9 +40,9 @@ export class CategoryComponent implements OnInit {
     this.api
       .getCategory()
       .subscribe(
-        response=>{
-          this.get_category = response
-          this.categories = this.get_category.data
+        (response: any)=>{
+          
+          this.categories = response.data
           console.log(this.categories)
         },
         error =>{
@@ -60,14 +56,11 @@ export class CategoryComponent implements OnInit {
     this.api
         .addCategory(this.formValue.value)
         .subscribe(
-          response =>{
-            this.res_message = response
-            this.message = this.res_message.message
+          (response: any) =>{
+            
             Swal.fire({
-              title: 'Success',
-              text: this.message,
               icon: 'success',
-              confirmButtonText: 'Ok'
+              title: response.message,
             });
             console.log(response);
           },
