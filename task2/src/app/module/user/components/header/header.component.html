@@ -1,17 +1,26 @@
 <header>
-    <nav class="uk-navbar-container uk-margin" uk-navbar>
-        <div class="uk-navbar-center">
-            <div>
-                <a class="uk-navbar-item uk-logo" href="#">Smartex</a>
-                <ul class="uk-navbar-nav">
-                    <li><a [routerLink]="['/']">Home</a></li>
-                    <!-- <li><a [routerLink]="['/brands']">Brands</a></li>
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li><a class="uk-navbar-item uk-logo" href="#"><span>Smar</span>tex</a></li>
+            </ul>
+        </div>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+
+                <li><a [routerLink]="['/']">Home</a></li>
+                <li><a [routerLink]="['/']">About</a></li>
+                <li><a [routerLink]="['/']">Product</a></li>
+                <li><a [routerLink]="['/']">Contact</a></li>
+                <!-- <li><a [routerLink]="['/brands']">Brands</a></li>
                     <li><a [routerLink]="['/category']">Category</a></li>
                     <li><a [routerLink]="['/products']">Products</a></li>
                     <li><a [routerLink]="['/contact']">Contact</a></li> -->
-                    <li><a [routerLink]="['login']">Login</a></li>
-                </ul>
-            </div>
+                <li><a [routerLink]="['login']">Login</a></li>
+            </ul>
+
         </div>
     </nav>
+
+
 </header>

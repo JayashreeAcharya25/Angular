@@ -1,41 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap');
+
 .slide {
-    width: 100vw;
-    height: 95vh;
-  }
-  .wrapper {
-    display: flex;
-    flex-direction: row;
-    width: 419vw;
-    transform: rotate(90deg) translateY(-95vh);
-    transform-origin: top left;
-  }
-  .one {
-    background: #efdefe;
-  }
-  .two {
-    background: #a3f3d3;
-  }
-  .three {
-    background: #0bbaa0;
-  }
-  .four {
-    background: #00dfdf;
-  }
+  width: 100vw;
+  height: 100vh;
+}
 
-  .outer-wrapper {
-    width: 86vh;
-    height: 100vw;
-    transform: rotate(-90deg) translateX(-86vh);
-    transform-origin: top left;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    position: absolute;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  ::-webkit-scrollbar {
-    display:none;
-  }
-  
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 400vw;
+  transform: rotate(90deg) translateY(-100vh);
+  transform-origin: top left;
+}
 
+.one {
+  background: #ebebeb;
+}
+
+.two {
+  background: #ebebeb;
+}
+
+.three {
+  background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
+      url('../../../../../assets/Bg1.jpg') no-repeat;
+  background-size: cover;
+}
+
+.four {
+  background: #ebebeb;
+}
+
+.outer-wrapper {
+  width: 94.3vh;
+  height: 100vw;
+  transform: rotate(-90deg) translateX(-94.3vh);
+  transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.one .uk-slideshow-items img {
+  background-size: cover;
+}
+
+
+/* About Us Section */
+
+.two .slide-two {
+  height: 100vh;
+  display: flex;
+} 
+
+.two .slide-two .section .container{
+  display: flex;
+  width: 70%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.two .slide-two .section .container .content{
+  margin: auto;
+}
+.two .slide-two .section h3 {
+  color: #6d6d6d;
+  font-size: 40px;
+  font-family: 'Cormorant Garamond',
+    serif;
+    margin-bottom: 5px;
+}
+
+.two .slide-two .section h3 span{
+  color: #a50377;
+  font-size: 80px;
+}
+
+.two .slide-two .section:nth-child(1){
+  width: 70%;
+}
+.two .slide-two .section:nth-child(2){
+  width: 30%;
+  /* background: #333; */
+  background: linear-gradient(rgba(235,235,235,0.9),rgba(235,235,235,0.9)),
+      url('../../../../../assets/about-section-1.jpeg');
+  background-size: cover;
+  height: 100vh;
+}
+
+.two .slide-two .section p {
+  font-size: 16px;
+  color: #999;
+  font-family: 'Jost', sans-serif;
+  width: 70%;
+} 
+
+.two .slide-two .section .img-grid{
+  margin-right: -300px;
+}
+
+.two .slide-two .section img {
+  height: 467px;
+  width: 311px;
+  background-size: cover;
+  margin: auto;
+  display: block;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.two .slide-two .section .image-overlay{
+  height: 467px !important;
+  width: 311px !important;
   
+  border: 3px solid #cccccc;
+  margin-left: 80px;
+  margin-top: -510px;
+}
+.two .slide-two .section img:hover{
+  transform: scale(.95);
+}
+
+
+/* Product Section */
+
+.three .slide-three {
+  height: 100vh;
+  display: block;
+}
+
+.three .slide-three .container{
+  width: 70%;
+  margin: auto 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+}
+
+.three .slide-three .content{
+  margin: 80px 0;
+}
+
+.three .slide-three .content h3 {
+  color: #ebebeb;
+  font-size: 40px;
+  font-family: 'Cormorant Garamond',
+    serif;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.three .slide-three .content h3 span{
+  color: #a50377;
+  font-size: 50px;
+}
+
+.three .slide-three .container img{
+  height: 200px;
+  width: 450px;
+  background-size: cover;
+  object-fit: cover;
+  margin: auto;
+}
+
+.three .slide-three .uk-card-body{
+  padding: 25px 20px;
+}
+.three .slide-three .uk-card-body h3{
+  font-family: 'Jost', sans-serif;
+  font-size: 20px;
+}
+
+.three .slide-three .uk-card-body p{
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  color: #999;
+}
+
+
+/* Contact Section */
+
+.four .slide-four{
+  height: 100vh;
+  margin: auto;
+  display: block;
+  background: linear-gradient(rgba(235,235,235, 0.93), rgba(235,235,235, 0.93)),
+  url('../../../../../assets/contact-us-1.png') no-repeat;
+  background-size: contain;
+  background-position: top center;
+}
+.four .slide-four .container{
+  width: 70%;
+  margin: auto 0;
+  display: block;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.four .slide-four .content{
+  padding: 120px 0;
+}
+
+.four .slide-four .content h3 {
+  color: #5a5a5a;
+  font-size: 50px;
+  font-family: 'Cormorant Garamond',
+    serif;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.four .slide-four .content h3 span{
+  color: #a50377;
+  font-size: 60px;
+}
+
+.four .slide-four .content p{
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+  color: #818181;
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.four .slide-four .content form{
+  padding: 40px 0;
+  width: 50%;
+  margin: auto;
+}
+
+.four .slide-four .content form .uk-input,
+.four .slide-four .content form .uk-textarea{
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.four .slide-four .content form  button{
+  margin: 30px auto;
+  padding: 0px 35px;
+  font-size: 13px;
+  background: #7a0459;
+  color: #ebebeb;
+  text-transform: capitalize;
+  border: none;
+  border-radius: 4px;
+}
+.four .slide-four .content form  button:hover{
+  background: #80045d;
+}
+.four .slide-four .content .footer{
+  width: 50%;
+  margin: auto;
+}
+.four .slide-four .content .footer p{
+  font-size: 14px;
+}
+.four .slide-four .content .footer span{
+  color: #7a0459;
+}
+.four .slide-four .content .footer .contact-info{
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  width: 50%;
+}
+
+

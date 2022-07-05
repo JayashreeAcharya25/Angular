@@ -74,8 +74,9 @@
 
 .side-nav .sidebar {
     /* background: #520371; */
-    background: #7a0459;
+    /* background: #7a0459; */
     /* background: #ffdb39; */
+    background: #202026;
     background-size: cover;
     padding-top: 30px;
     position: fixed;
@@ -196,7 +197,7 @@
 
 .side-nav .content {
     margin-left: 220px;
-    background: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.8)),
+    background: linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.8)),
     url('../../../../../assets/content-banner.jpg');
     background-size: cover;
     height: 92.5vh;
