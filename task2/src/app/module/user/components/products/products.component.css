@@ -1,0 +1,76 @@
+.product{
+    margin: 50px 100px;
+}
+
+.product .row{
+    display: flex;
+    
+    margin: auto;
+    padding: 20px 0;
+}
+
+.product .row:nth-child(1){
+    column-gap: 130px;
+}
+
+
+.product .row ul{
+    margin-bottom: 0;
+}
+
+.product .row ul li{
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.product .row .uk-search-default{
+    width: 70%;
+}
+
+.product .row .container:nth-child(1){
+    width: 15%;
+    margin: 0 0 20px 0;
+    
+}
+.product .row .container:nth-child(2){
+    width: 85%;
+    padding: 0 50px;
+    border: 0;
+    border-left: 1px solid #e5e5e5;
+}
+
+
+.product .row .container:nth-child(1) .section:nth-child(3){
+    padding-top: 5px;
+ }
+
+.product .row .container:nth-child(2) .section{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+}
+.product .row .section .card .uk-card{
+    background: #f6f6f6;
+}
+.product .row .section .card h3{
+    color: #333;
+  font-size: 30px;
+  font-family: 'Cormorant Garamond',
+    serif;
+    margin-bottom: 0;
+}
+
+.product .row .section .card p{
+    font-size: 14px;
+    font-family: 'Jost', sans-serif;
+    color: #999;
+    margin: 0;
+}
+.product .row .section .card img{
+    height: 150px;
+    width: 200px;
+    margin: auto;
+    display: block;
+}

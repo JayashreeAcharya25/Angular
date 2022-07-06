@@ -4,6 +4,7 @@
 .slide {
   width: 100vw;
   height: 100vh;
+  overflow-y: hidden;
 }
 
 .wrapper {
@@ -22,13 +23,13 @@
   background: #ebebeb;
 }
 
-.three {
+.four {
   background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
       url('../../../../../assets/Bg1.jpg') no-repeat;
   background-size: cover;
 }
 
-.four {
+.five {
   background: #ebebeb;
 }
 
@@ -48,8 +49,32 @@
   display: none;
 }
 
-.one .uk-slideshow-items img {
+.one .slide-one{
+  height: 100vh;
+}
+
+.one .uk-slideshow-items img{
   background-size: cover;
+  object-fit: cover;
+}
+
+.one .uk-slideshow-items .uk-position-center-right {
+  bottom: 150px;
+  right: 80px;
+  height: 150px;
+  width: 350px;
+}
+
+.one .uk-slideshow-items .uk-position-center-right h3{
+  color: #333;
+  font-size: 30px;
+  font-family: 'Cormorant Garamond',
+    serif;
+}
+
+.one .uk-slideshow-items .uk-position-center-right p{
+  font-size: 16px;
+  font-family: 'Jost', sans-serif;
 }
 
 
@@ -70,6 +95,16 @@
 }
 .two .slide-two .section .container .content{
   margin: auto;
+}
+.two .slide-two .section .tag-line{
+  font-family: 'Cormorant Garamond',
+    serif;
+  color: #d6d6d6;
+  width: 100%;
+  line-height: 1;
+  font-size: 50px;
+  margin-top: -120px;
+  margin-left: -80px;
 }
 .two .slide-two .section h3 {
   color: #6d6d6d;
@@ -131,12 +166,12 @@
 
 /* Product Section */
 
-.three .slide-three {
+.four .slide-four {
   height: 100vh;
   display: block;
 }
 
-.three .slide-three .container{
+.four .slide-four .container{
   width: 70%;
   margin: auto 0;
   position: relative;
@@ -145,11 +180,11 @@
   transform: translate(-50%, -55%);
 }
 
-.three .slide-three .content{
+.four .slide-four .content{
   margin: 80px 0;
 }
 
-.three .slide-three .content h3 {
+.four .slide-four .content h3 {
   color: #ebebeb;
   font-size: 40px;
   font-family: 'Cormorant Garamond',
@@ -158,12 +193,12 @@
     text-align: center;
 }
 
-.three .slide-three .content h3 span{
+.four .slide-four .content h3 span{
   color: #a50377;
   font-size: 50px;
 }
 
-.three .slide-three .container img{
+.four .slide-four .container img{
   height: 200px;
   width: 450px;
   background-size: cover;
@@ -171,15 +206,15 @@
   margin: auto;
 }
 
-.three .slide-three .uk-card-body{
+.four .slide-four .uk-card-body{
   padding: 25px 20px;
 }
-.three .slide-three .uk-card-body h3{
+.four .slide-four .uk-card-body h3{
   font-family: 'Jost', sans-serif;
   font-size: 20px;
 }
 
-.three .slide-three .uk-card-body p{
+.four .slide-four .uk-card-body p{
   font-family: 'Jost', sans-serif;
   font-size: 14px;
   color: #999;
@@ -188,7 +223,7 @@
 
 /* Contact Section */
 
-.four .slide-four{
+.five .slide-five{
   height: 100vh;
   margin: auto;
   display: block;
@@ -197,7 +232,7 @@
   background-size: contain;
   background-position: top center;
 }
-.four .slide-four .container{
+.five .slide-five .container{
   width: 70%;
   margin: auto 0;
   display: block;
@@ -208,11 +243,11 @@
   
 }
 
-.four .slide-four .content{
+.five .slide-five .content{
   padding: 120px 0;
 }
 
-.four .slide-four .content h3 {
+.five .slide-five .content h3 {
   color: #5a5a5a;
   font-size: 50px;
   font-family: 'Cormorant Garamond',
@@ -221,12 +256,12 @@
     text-align: center;
 }
 
-.four .slide-four .content h3 span{
+.five .slide-five .content h3 span{
   color: #a50377;
   font-size: 60px;
 }
 
-.four .slide-four .content p{
+.five .slide-five .content p{
   font-family: 'Jost', sans-serif;
   font-size: 16px;
   color: #818181;
@@ -236,20 +271,20 @@
   margin-bottom: 30px;
 }
 
-.four .slide-four .content form{
+.five .slide-five .content form{
   padding: 40px 0;
   width: 50%;
   margin: auto;
 }
 
-.four .slide-four .content form .uk-input,
-.four .slide-four .content form .uk-textarea{
+.five .slide-five .content form .uk-input,
+.five .slide-five .content form .uk-textarea{
   font-family: 'Jost', sans-serif;
   font-size: 15px;
   padding: 10px;
 }
 
-.four .slide-four .content form  button{
+.five .slide-five .content form  button{
   margin: 30px auto;
   padding: 0px 35px;
   font-size: 13px;
@@ -259,20 +294,20 @@
   border: none;
   border-radius: 4px;
 }
-.four .slide-four .content form  button:hover{
+.five .slide-five .content form  button:hover{
   background: #80045d;
 }
-.four .slide-four .content .footer{
+.five .slide-five .content .footer{
   width: 50%;
   margin: auto;
 }
-.four .slide-four .content .footer p{
+.five .slide-five .content .footer p{
   font-size: 14px;
 }
-.four .slide-four .content .footer span{
+.five .slide-five .content .footer span{
   color: #7a0459;
 }
-.four .slide-four .content .footer .contact-info{
+.five .slide-five .content .footer .contact-info{
   display: flex;
   justify-content: space-evenly;
   margin: auto;
