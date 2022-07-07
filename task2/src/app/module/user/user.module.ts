@@ -13,9 +13,7 @@ import { UserComponent } from './components/user/user.component';
 import { IndexComponent } from './components/index/index.component';
 import { ProductsComponent } from './components/products/products.component';
 import { CartComponent } from './components/cart/cart.component';
-
-
-
+import { ProductsService } from './components/products/products.service';
 
 @NgModule({
   declarations: [
@@ -34,8 +32,8 @@ import { CartComponent } from './components/cart/cart.component';
     ReactiveFormsModule,
     FormsModule,
   ],
-  exports: [
-    ProductsComponent
+  providers : [
+    ProductsService
   ]
 })
 export class UserModule { 

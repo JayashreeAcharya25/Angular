@@ -1,30 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsComponent } from '../products/products.component';
-import { map, tap } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { map, tap, share } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { ProductsService } from '../products/products.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
-  providers: [ProductsComponent]
+  // providers: [ProductsService]
 })
+
 export class CartComponent implements OnInit {
 
   qty: any = 1
   item_price:any = 200
   total_price:any = this.item_price
 
-  items: any = []
+  // selectedProducts: any = [];
+
+  public passedData!: Observable<any[]>;
   
-  constructor(private _service: ProductsComponent, private router: Router) {
-    // this._service.addToCart(product)
-    
-    console.log(this.router.getCurrentNavigation()?.extras.state)
-  }
+  constructor(private _service: ProductsService) {
+    this._service.allData.pipe(share())
+   }
 
   ngOnInit() {
-    // this.items = this._service.addToCart()
+   
+  //  this._service
+  //   .allPassedData
+  //   .subscribe((allPassedData) =>{
+  //     this.selectedProducts = allPassedData;
+  //     console.log(this.selectedProducts);
+  //   })
+
     
   }
 

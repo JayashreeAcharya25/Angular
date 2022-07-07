@@ -10,7 +10,7 @@
                 <input class="uk-search-input" type="search" placeholder="Search here..">
             </form>
             <div class="div-cart">
-                <a class="cart" href="/yourcart" uk-icon="icon: bag" uk-tooltip="Cart"></a>
+                <a class="cart" [routerLink]="['/yourcart']" uk-icon="icon: bag" uk-tooltip="Cart"></a>
                 <span class="uk-badge">1</span>
             </div>
         </div>
@@ -96,7 +96,7 @@
                             </div>
                             <div class="uk-card-footer">
                                 <a class="shop-now" href="#">Shop Now</a>
-                                <a class="cart" uk-icon="icon: bag" uk-tooltip="Add to Cart" (click)="addToCart(product); sendData();" ></a>
+                                <a class="cart" uk-icon="icon: bag" uk-tooltip="Add to Cart" (click)="addToCart(product);" ></a>
                             </div>
                         </div>
                     
