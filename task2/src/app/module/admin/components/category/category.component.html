@@ -4,7 +4,7 @@
         <div class="container">
             <div class="admin-header">
                 <h3>List Of Category</h3>
-                <a href="#modal-center" uk-toggle>Add Category</a>
+                <a href="#modal-center" uk-icon="icon: plus" uk-toggle></a>
             </div>
             <div class="admin-body">
                 <table class="uk-table uk-table-small uk-table-divider">
@@ -29,7 +29,7 @@
         <div id="modal-center" class="uk-flex-top modal" uk-modal>
             <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
     
-                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <button #ukclose class="uk-modal-close-default" type="button" uk-close></button>
     
                 <div class="uk-modal-header">
                     <h3 class="uk-modal-title">Add Category</h3>
@@ -45,7 +45,7 @@
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-horizontal-text">Category Name</label>
                             <div class="uk-form-controls">
-                                <input class="uk-input" formControlName="cat_name" id="form-horizontal-text" type="text" placeholder="Enter Sl. No">
+                                <input class="uk-input" formControlName="cat_name" id="form-horizontal-text" type="text" placeholder="Enter Category Name">
                             </div>
                         </div>
                         <div class="uk-margin">
@@ -53,7 +53,7 @@
                             <div class="uk-form-controls">
                                 <select class="uk-select" id="form-horizontal-select" formControlName="cat_brand" >
                                     <option>Select Brands</option>
-                                    <option *ngFor="let brand of brands" value={{brand.id}}>{{brand.b_name}}</option>
+                                    <option *ngFor="let brand of brands" value={{brand.id}}>{{brand.brand_name}}</option>
                                 </select>
                             </div>
                         </div>

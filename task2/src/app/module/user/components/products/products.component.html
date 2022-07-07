@@ -7,8 +7,12 @@
             </ul>
             <form class="uk-search uk-search-default">
                 <span uk-search-icon></span>
-                <input class="uk-search-input" type="search" placeholder="Search">
+                <input class="uk-search-input" type="search" placeholder="Search here..">
             </form>
+            <div class="div-cart">
+                <a class="cart" href="/yourcart" uk-icon="icon: bag" uk-tooltip="Cart"></a>
+                <span class="uk-badge">1</span>
+            </div>
         </div>
         <hr/>
         <div class="row">
@@ -23,7 +27,7 @@
                                 <option value="3">Option 03</option>
                                 <option value="4">Option 04</option>
                             </select>
-                            <button class="uk-button uk-button-default uk-float-right" type="button" tabindex="-1">
+                            <button class="uk-button uk-button-default" type="button" tabindex="-1">
                                 <span></span>
                                 <span uk-icon="icon: chevron-down"></span>
                             </button>
@@ -41,7 +45,7 @@
                                 <option value="3">Option 03</option>
                                 <option value="4">Option 04</option>
                             </select>
-                            <button class="uk-button uk-button-default uk-float-right" type="button" tabindex="-1">
+                            <button class="uk-button uk-button-default" type="button" tabindex="-1">
                                 <span></span>
                                 <span uk-icon="icon: chevron-down"></span>
                             </button>
@@ -56,7 +60,7 @@
                                 <option value="3">Option 03</option>
                                 <option value="4">Option 04</option>
                             </select>
-                            <button class="uk-button uk-button-default uk-float-right" type="button" tabindex="-1">
+                            <button class="uk-button uk-button-default" type="button" tabindex="-1">
                                 <span></span>
                                 <span uk-icon="icon: chevron-down"></span>
                             </button>
@@ -71,7 +75,7 @@
                                 <option value="3">Option 03</option>
                                 <option value="4">Option 04</option>
                             </select>
-                            <button class="uk-button uk-button-default uk-float-right" type="button" tabindex="-1">
+                            <button class="uk-button uk-button-default" type="button" tabindex="-1">
                                 <span></span>
                                 <span uk-icon="icon: chevron-down"></span>
                             </button>
@@ -81,42 +85,22 @@
             </div>
             <div class="container">
                 <div class="section">
-                    <div class="card">
-                        <div class="uk-card uk-card-default uk-card-body">
-                            <div class="uk-card-badge uk-label">Badge</div>
-                            <h3 class="uk-card-title">Title</h3>
-                            <p>Lorem ipsum color sit</p>
-                            <img src="../../../../../assets/mockup-1.jpg" alt="">
+                    
+                        <div class=" uk-card uk-card-default card" *ngFor="let product of products">
+                            <div class="uk-card-body">
+                                <div class="uk-card-badge uk-label">{{product.id}}</div>
+                                <h3 class="uk-card-title">{{product.pro_name}}</h3>
+                                <p>{{product.pro_desc}}</p>
+                                <img src="../../../../../assets/mockup-1.png" alt="">
+                                <p class="price">&#8377; {{product.pro_price}}</p>
+                            </div>
+                            <div class="uk-card-footer">
+                                <a class="shop-now" href="#">Shop Now</a>
+                                <a class="cart" uk-icon="icon: bag" uk-tooltip="Add to Cart" (click)="addToCart(product); sendData();" ></a>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="uk-card uk-card-default uk-card-body">
-                            <div class="uk-card-badge uk-label">Badge</div>
-                            <h3 class="uk-card-title">Title</h3>
-                            <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-card uk-card-default uk-card-body">
-                            <div class="uk-card-badge uk-label">Badge</div>
-                            <h3 class="uk-card-title">Title</h3>
-                            <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-card uk-card-default uk-card-body">
-                            <div class="uk-card-badge uk-label">Badge</div>
-                            <h3 class="uk-card-title">Title</h3>
-                            <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-card uk-card-default uk-card-body">
-                            <div class="uk-card-badge uk-label">Badge</div>
-                            <h3 class="uk-card-title">Title</h3>
-                            <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
+                    
+                    
                 </div>
             </div>
         </div>

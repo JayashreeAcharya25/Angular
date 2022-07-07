@@ -69,7 +69,7 @@ export class BrandComponent implements OnInit {
             });
             console.log(response);
 
-            // window.setTimeout(function(){location.reload()}, 1000)
+            window.setTimeout(function(){location.reload()}, 1000)
             this.ukclose.nativeElement.click()
           },
           error => {

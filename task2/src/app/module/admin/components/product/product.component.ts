@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { SharedService } from '../../../../shared-service.service';
 import Swal from 'sweetalert2';
@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['../brand/brand.component.css']
 })
 export class ProductComponent implements OnInit {
+
+  @ViewChild('ukclose') ukclose: any
 
   formValue!: FormGroup
   selectedFile: any
@@ -89,7 +91,8 @@ export class ProductComponent implements OnInit {
               icon: 'success',
               title: response.message,
             });
-            console.log(response);
+            window.setTimeout(function(){location.reload()}, 1000)
+            this.ukclose.nativeElement.click()
           },
           error => 
             console.log(error)

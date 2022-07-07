@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { UserComponent } from './components/user/user.component';
 import { IndexComponent } from './components/index/index.component';
 import { ProductsComponent } from './components/products/products.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 
@@ -25,12 +26,25 @@ import { ProductsComponent } from './components/products/products.component';
     UserComponent,
     IndexComponent,
     ProductsComponent,
+    CartComponent,
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+  ],
+  exports: [
+    ProductsComponent
   ]
 })
-export class UserModule { }
+export class UserModule { 
+  // static forRoot(){
+  //   return {
+  //   ngModule:UserModule,
+  //   providers: [
+  //   {provide: ProductsComponent,
+  //   }]
+  //   };
+  //   }
+}

@@ -4,7 +4,7 @@
     <div class="container">
       <div class="admin-header">
         <h3>List Of Products</h3>
-        <a href="#modal-center" uk-toggle>Add Products</a>
+        <a href="#modal-center" uk-icon="icon: plus" uk-toggle></a>
       </div>
       <div class="admin-body">
         <table class="uk-table uk-table-small uk-table-divider">
@@ -37,7 +37,7 @@
       <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
         <div class="uk-modal-header">
           <h3 class="uk-modal-title">Add Product</h3>
-          <button class="uk-modal-close-default" type="button" uk-close></button>
+          <button #ukclose class="uk-modal-close-default" type="button" uk-close></button>
         </div>
         <div class="uk-modal-body">
           <form [formGroup]="formValue" (ngSubmit)="addProducts()">
@@ -117,7 +117,7 @@
                 <div class="uk-form-controls">
                     <select class="uk-select" id="form-horizontal-select" formControlName="pro_brand" >
                         <option>Select Brands</option>
-                        <option *ngFor="let brand of brands" value={{brand.id}}>{{brand.b_name}}</option>
+                        <option *ngFor="let brand of brands" value={{brand.id}}>{{brand.brand_name}}</option>
                     </select>
                 </div>
               </div>
@@ -126,7 +126,7 @@
                 <div class="uk-form-controls">
                     <select class="uk-select" id="form-horizontal-select" formControlName="pro_category" >
                         <option>Select Category</option>
-                        <option *ngFor="let category of categories" value={{category.id}}>{{category.c_name}}</option>
+                        <option *ngFor="let category of categories" value={{category.id}}>{{category.cat_name}}</option>
                     </select>
                 </div>
               </div>
