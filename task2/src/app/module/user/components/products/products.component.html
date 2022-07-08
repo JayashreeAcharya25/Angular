@@ -11,7 +11,7 @@
             </form>
             <div class="div-cart">
                 <a class="cart" [routerLink]="['/yourcart']" uk-icon="icon: bag" uk-tooltip="Cart"></a>
-                <span class="uk-badge">1</span>
+                <span name="count" ngDefaultControl [(ngModel)]="count" class="uk-badge">{{count}}</span>
             </div>
         </div>
         <hr/>

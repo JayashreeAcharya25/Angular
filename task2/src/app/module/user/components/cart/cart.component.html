@@ -9,9 +9,9 @@
                 </thead>
                 <br />
                 <thead>
-                    
+
                     <tr>
-                       
+
                         <th class="items">Item</th>
                         <th>Unit Price</th>
                         <th>Quantity</th>
@@ -20,75 +20,59 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item in passedData">
-                        
-                        <td class="items">{{item.pro_name}}</td>
-                        <td >&#8377; {{item.pro_price}}</td>
-                        <td>
-                            <a (click)="increment_qty()">
-                                <svg width="11" height="11" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="9" y="1" width="1" height="17"></rect>
-                                    <rect x="1" y="9" width="17" height="1"></rect>
-                                </svg>
-                            </a>
-                            
-                            <span name="qty" ngDefaultControl [(ngModel)]="qty">{{qty}}</span>
-                            
-                            <a (click)="decrement_qty()">
-                                <svg width="11" height="11" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <rect height="1" width="18" y="9" x="1"></rect>
-                                </svg>
-                            </a>
-                        </td>
-                        <td name="total_price" ngDefaultControl [(ngModel)]="total_price">&#8377; {{total_price}}</td>
-                        <td>
-                            <a href="">
-                                <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill="none" stroke="#3f3f3f" stroke-width="1.06" d="M16,16 L4,4"></path>
-                                    <path fill="none" stroke="#3f3f3f" stroke-width="1.06" d="M16,4 L4,16"></path>
-                                </svg>
-                            </a>
-                        </td>
-                    </tr>
+                    <ng-container *ngIf="selectedProducts.length">
+                        <ng-container *ngFor="let item of selectedProducts; let i = index">
+
+                            <tr [attr.id]="item.id">
+
+                                <td class="items">{{item.pro_name}}</td>
+                                <td>&#8377; {{item.pro_price}}</td>
+                                <td>
+                                    <a (click)="increment_qty(item)">
+                                        <svg width="11" height="11" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="9" y="1" width="1" height="17"></rect>
+                                            <rect x="1" y="9" width="17" height="1"></rect>
+                                        </svg>
+                                    </a>
+
+                                    <span>{{item.pro_qty}}</span>
+
+                                    <a (click)="decrement_qty(item)">
+                                        <svg width="11" height="11" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect height="1" width="18" y="9" x="1"></rect>
+                                        </svg>
+                                    </a>
+                                </td>
+                                <td>&#8377;
+                                    {{item.pro_qty * item.pro_price}}</td>
+                                <td>
+                                    <a (click)="remove(item)">
+                                        <svg width="14" height="14" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill="none" stroke="#3f3f3f" stroke-width="1.06" d="M16,16 L4,4">
+                                            </path>
+                                            <path fill="none" stroke="#3f3f3f" stroke-width="1.06" d="M16,4 L4,16">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </ng-container>
                     <tr>
-                       
-                        <td class="items">Item 1</td>
-                        <td name="item_price" ngDefaultControl [(ngModel)]="item_price">&#8377; {{item_price}}</td>
-                        <td>
-                            <a (click)="increment_qty()">
-                                <svg width="11" height="11" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="9" y="1" width="1" height="17"></rect>
-                                    <rect x="1" y="9" width="17" height="1"></rect>
-                                </svg>
-                            </a>
-                            
-                            <span name="qty" ngDefaultControl [(ngModel)]="qty">{{qty}}</span>
-                            
-                            <a (click)="decrement_qty()">
-                                <svg width="11" height="11" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <rect height="1" width="18" y="9" x="1"></rect>
-                                </svg>
-                            </a>
-                        </td>
-                        <td name="total_price" ngDefaultControl [(ngModel)]="total_price">&#8377; {{total_price}}</td>
-                        <td>
-                            <a href="">
-                                <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill="none" stroke="#3f3f3f" stroke-width="1.06" d="M16,16 L4,4"></path>
-                                    <path fill="none" stroke="#3f3f3f" stroke-width="1.06" d="M16,4 L4,16"></path>
-                                </svg>
-                            </a>
-                        </td>
+                        <div *ngIf="selectedProducts.length===0">No Records Found</div>
                     </tr>
                 </tbody>
-                
+
             </table>
             <div class="row">
                 <div class="section">
                     <a href="/product"><span uk-icon="icon: arrow-left"></span> Continue Shopping</a>
                 </div>
                 <div class="section">
-                    <p>Total Amount: <span>&#8377; </span></p>
+                    <p >Total Amount: <span>&#8377; {{total}}</span></p>
                 </div>
             </div>
         </div>
@@ -98,27 +82,42 @@
             <div class="section">
                 <div class="section-container">
                     <h5>Sub Total</h5>
-                    <p>&#8377; 000</p>
+                    <p>&#8377; {{total}}</p>
                 </div>
                 <div class="section-container">
                     <h5>SGST</h5>
-                    <p>0.5%</p>
+                    <p>{{sgst | percent}}</p>
                 </div>
                 <div class="section-container">
                     <h5>CGST</h5>
-                    <p>0.5%</p>
+                    <p>{{cgst | percent}}</p>
                 </div>
             </div>
             <div class="section">
                 <div class="section-container">
                     <h5>Total Price</h5>
-                    <p>Rs. 000</p>
+                    <p>&#8377; {{netPrice}}</p>
                 </div>
             </div>
             <div class="section">
                 <div class="section-container">
-                    <button>Proceed to Checkout</button>
+                    <button href="#modal-center" uk-toggle>Proceed to Checkout</button>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-center" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-margin-auto-vertical">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title">Select Payment Method</h2>
+            </div>
+            <div class="uk-modal-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="uk-modal-footer uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-button-primary" type="button">Save</button>
             </div>
         </div>
     </div>

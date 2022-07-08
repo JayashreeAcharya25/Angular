@@ -7,28 +7,20 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ProductsService {
 
-  // allPassedData: any[] = [];
-  // public allPassedData: BehaviorSubject<any> = new BehaviorSubject<any>([]);
-
-
-  private passedData: any[] = [];
-  public allData:  BehaviorSubject<any> = new BehaviorSubject<any>([]);
-
+  passedData: any[] = [];
+  allData: any[] = [];
 
   constructor() { }
 
-  // storePassedObject(passedData: any) {
-  //   // this.allPassedData.next(passedData);
-   
-  // }
 
   additems(item: any){
     this.passedData.push(item);
-    this.allData.next(this.passedData)
+    // this.allData.next(this.passedData)
+    
   }
 
-  // retrievePassedObject() {
-  //   return this.allPassedData;
+  retrievePassedObject() {
+    return this.passedData;
     
-  // }
+  }
 }

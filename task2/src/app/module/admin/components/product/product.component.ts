@@ -21,6 +21,7 @@ export class ProductComponent implements OnInit {
 
   pro_color: any = 1
   uid: any = 1
+  qty: any = 1
 
   constructor(private api: SharedService, private formBuilder: FormBuilder) { 
     this.formValue = this.formBuilder.group({
@@ -82,6 +83,7 @@ export class ProductComponent implements OnInit {
     formData.append('pro_color', this.pro_color)
     formData.append('pro_image', this.selectedFile)
     formData.append('uid', this.uid)
+    formData.append('pro_qty', this.qty)
 
     this.api
         .addProduct(formData)

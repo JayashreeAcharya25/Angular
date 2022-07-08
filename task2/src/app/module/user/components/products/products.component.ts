@@ -16,6 +16,8 @@ export class ProductsComponent implements OnInit {
   formvalue!: FormGroup
   products:any = []
 
+  count: any = 0
+
   productObjModel: ProductModel = new ProductModel()
 
   constructor(private formBuilder: FormBuilder, private _service: ProductsService, private api:SharedService,private router: Router) { 
@@ -23,6 +25,7 @@ export class ProductsComponent implements OnInit {
       id: [''],
       pro_name: [''],
       pro_price: [''],
+      pro_qty: [''],
     })
   }
 
@@ -36,7 +39,9 @@ export class ProductsComponent implements OnInit {
       }, error =>{
         console.log(error)
       })
-    
+
+    // this.count = this._cart.returnitemcount()
+    // console.log(this.count)
   }
 
   addToCart(product: any){
@@ -45,10 +50,21 @@ export class ProductsComponent implements OnInit {
     this.formvalue.controls['id'].setValue(product.id)
     this.formvalue.controls['pro_name'].setValue(product.pro_name)
     this.formvalue.controls['pro_price'].setValue(product.pro_price)
+    this.formvalue.controls['pro_qty'].setValue(product.pro_qty)
     console.log(this.formvalue.value)
+    ++this.count;
+
+    // let cartDataNull = localStorage.getItem('cart')
+    // if(cartDataNull == null){
+    //   let storeData: any = [];
+    //   storeData.push(product)
+    // }
+
+    // localStorage.setItem('cart', JSON.stringify(product))
 
     // this._service.additems.next(this.formvalue.value)
     this._service.additems(this.formvalue.value)
+    
   }
 
 

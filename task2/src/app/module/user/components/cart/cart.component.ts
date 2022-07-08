@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { map, tap, share } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ProductsService } from '../products/products.service';
+import { FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -12,42 +13,69 @@ import { ProductsService } from '../products/products.service';
 
 export class CartComponent implements OnInit {
 
-  qty: any = 1
-  item_price:any = 200
-  total_price:any = this.item_price
+  qty: any
+  amt: any
+  id: any
+  selectedProducts: any = [];
+  total: number = 0;
+  sgst: number = 2/100;
+  cgst: number = 2/100;
+  netPrice: number = 0;
 
-  // selectedProducts: any = [];
-
-  public passedData!: Observable<any[]>;
-  
   constructor(private _service: ProductsService) {
-    this._service.allData.pipe(share())
-   }
+
+  }
 
   ngOnInit() {
+
+    this.selectedProducts = this._service.retrievePassedObject()
+    console.log("Products",this.selectedProducts)
+
+    this.grandTotal();
+    this.netAmt();
+  }
+
+  increment_qty(item: any) {
    
-  //  this._service
-  //   .allPassedData
-  //   .subscribe((allPassedData) =>{
-  //     this.selectedProducts = allPassedData;
-  //     console.log(this.selectedProducts);
-  //   })
-
-    
+    this.selectedProducts.find((i: any) => {
+      i.id === item.id;
+      i.pro_price === item.pro_price;
+    });
+    item.pro_qty = item.pro_qty+ 1;
+    this.grandTotal()
+    this.netAmt()
   }
 
-  increment_qty(){
+  decrement_qty(item: any) {
 
-    ++this.qty;
-    this.total_price = this.qty* this.item_price
+    // (this.qty == 1) ? this.qty : --this.qty;
+    this.selectedProducts.find((i: any) => {
+      i.id === item.id;
+      i.pro_price === item.pro_price;
+    });
+    (item.pro_qty === 1) ? item.pro_qty : item.pro_qty = item.pro_qty - 1;
+
+    this.grandTotal()
+    this.netAmt()
 
   }
 
-  decrement_qty(){
-
-    (this.qty == 1) ? this.qty : --this.qty;
-    
+  remove(item: any){
+    const index = this.selectedProducts.indexOf(item)
+    this.selectedProducts.splice(index, 1)
+    console.log(this.selectedProducts)
   }
+
+  grandTotal(){
+    this.total = this.selectedProducts.reduce(function(acc: number, val: { pro_price: number; pro_qty: number; }){
+      return acc + (val.pro_price * val.pro_qty)
+    }, 0)
+  }
+
+  netAmt(){
+    this.netPrice = this.total + this.cgst + this.sgst
+  }
+  
 
 }
 
