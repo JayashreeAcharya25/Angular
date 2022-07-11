@@ -14,7 +14,10 @@ import { ProductsService } from './products.service';
 export class ProductsComponent implements OnInit {
 
   formvalue!: FormGroup
+  
   products:any = []
+  brands: any
+  categories:any
 
   count: any = 0
 
@@ -40,6 +43,20 @@ export class ProductsComponent implements OnInit {
         console.log(error)
       })
 
+      this.api
+        .getBrand()
+        .subscribe(
+          (response: any) => this.brands = response.data,
+          error => console.log(error)
+        )
+
+    this.api
+      .getCategory()
+      .subscribe(
+        (response: any) => this.categories = response.data,
+        error => console.log(error)
+      )
+
     // this.count = this._cart.returnitemcount()
     // console.log(this.count)
   }
@@ -54,18 +71,12 @@ export class ProductsComponent implements OnInit {
     console.log(this.formvalue.value)
     ++this.count;
 
-    // let cartDataNull = localStorage.getItem('cart')
-    // if(cartDataNull == null){
-    //   let storeData: any = [];
-    //   storeData.push(product)
-    // }
-
-    // localStorage.setItem('cart', JSON.stringify(product))
-
-    // this._service.additems.next(this.formvalue.value)
     this._service.additems(this.formvalue.value)
     
   }
+
+
+  
 
 
 }

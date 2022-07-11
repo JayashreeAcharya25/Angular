@@ -36,14 +36,12 @@
                 </div>
                 <hr/>
                 <div class="section">
+                    
                     <div class="uk-margin">
                         <div uk-form-custom="target: > * > span:first-child">
                             <select>
-                                <option value="">Filter 1... &nbsp;</option>
-                                <option value="1">Option 01</option>
-                                <option value="2">Option 02</option>
-                                <option value="3">Option 03</option>
-                                <option value="4">Option 04</option>
+                                <option value="">Filter By Brands ... &nbsp;</option>
+                                <option [selected]="brand.brand_name" *ngFor="let brand of brands" value={{brand.id}}>{{brand.brand_name}}</option>
                             </select>
                             <button class="uk-button uk-button-default" type="button" tabindex="-1">
                                 <span></span>
@@ -54,26 +52,8 @@
                     <div class="uk-margin">
                         <div uk-form-custom="target: > * > span:first-child">
                             <select>
-                                <option value="">Filter 2... &nbsp;</option>
-                                <option value="1">Option 01</option>
-                                <option value="2">Option 02</option>
-                                <option value="3">Option 03</option>
-                                <option value="4">Option 04</option>
-                            </select>
-                            <button class="uk-button uk-button-default" type="button" tabindex="-1">
-                                <span></span>
-                                <span uk-icon="icon: chevron-down"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="uk-margin">
-                        <div uk-form-custom="target: > * > span:first-child">
-                            <select>
-                                <option value="">Filter 3... &nbsp;</option>
-                                <option value="1">Option 01</option>
-                                <option value="2">Option 02</option>
-                                <option value="3">Option 03</option>
-                                <option value="4">Option 04</option>
+                                <option value="">Filter By Category... &nbsp;</option>
+                                <option [selected]="category.cat_name" *ngFor="let category of categories" value={{category.id}}>{{category.cat_name}}</option>
                             </select>
                             <button class="uk-button uk-button-default" type="button" tabindex="-1">
                                 <span></span>
