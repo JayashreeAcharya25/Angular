@@ -4,7 +4,7 @@
     <div class="container">
       <div class="admin-header">
         <h3>List Of Products</h3>
-        <a href="#modal-center" uk-icon="icon: plus" uk-toggle></a>
+        <a href="#modal-center" uk-icon="icon: plus" uk-toggle (click)="onClickAddBtn()"></a>
       </div>
       <div class="admin-body">
         <table class="uk-table uk-table-small uk-table-divider">
@@ -17,6 +17,8 @@
               <th>Brand</th>
               <th>Category</th>
               <th>Price</th>
+              <th>Image</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -28,39 +30,44 @@
               <td>{{res.pro_brand}}</td>
               <td>{{res.pro_category}}</td>
               <td>{{res.pro_price}}</td>
+              <td><img [src]="res.pro_image"></td>
+              <td>
+                <a uk-icon="icon: trash"></a> &nbsp; &nbsp;
+                <button type="button" uk-icon="icon: pencil" uk-toggle="target: #modal-center" (click)="editProduct(res)"></button>
+              </td>
           </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <div id="modal-center" class="uk-flex-top modal" uk-modal>
+    <div id="modal-center" #ukmodal class="uk-flex-top modal" uk-modal>
       <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
         <div class="uk-modal-header">
-          <h3 class="uk-modal-title">Add Product</h3>
+          <h3 class="uk-modal-title">{{show_add_btn ? "Add Product" : "Update Product"}}</h3>
           <button #ukclose class="uk-modal-close-default" type="button" uk-close></button>
         </div>
         <div class="uk-modal-body">
-          <form [formGroup]="formValue" (ngSubmit)="addProducts()">
+          <form [formGroup]="formValue">
             <div class="uk-margin modal-grid-2">
               <div>
-                <label class="uk-form-label" for="form-horizontal-text">Sl. No</label>
+                <label class="uk-form-label">Sl. No</label>
                 <div class="uk-form-controls">
                   <input
                     class="uk-input"
                     formControlName="pro_slno"
-                    id="form-horizontal-text"
+                    
                     type="text"
                     placeholder="Enter Sl. No"
                   />
                 </div>
               </div>
               <div>
-                <label class="uk-form-label" for="form-horizontal-text">Code</label>
+                <label class="uk-form-label">Code</label>
                 <div class="uk-form-controls">
                   <input
                     class="uk-input"
                     formControlName="pro_code"
-                    id="form-horizontal-text"
+                    
                     type="text"
                     placeholder="Enter Product Code"
                   />
@@ -70,41 +77,48 @@
             <div class="uk-margin"></div>
             <div class="uk-margin modal-grid-2">
               <div>
-                <label class="uk-form-label" for="form-horizontal-text">Name</label>
+                <label class="uk-form-label" >Name</label>
                 <div class="uk-form-controls">
                   <input
                     class="uk-input"
                     formControlName="pro_name"
-                    id="form-horizontal-text"
+                   
                     type="text"
                     placeholder="Enter Product Name"
                   />
                 </div>
               </div>
+
               <div>
                 <div>
-                  <label class="uk-form-label" for="form-horizontal-text">Upload Image</label>
+                  <label class="uk-form-label">Upload Image</label>
                   <div class="uk-form-controls">
-                    <input
+                    <input class="uk-input" type="text"  formControlName="pro_image" (click)="triggerFile()">
+                    <!-- <input
                       class="uk-input"
-                      formControlName="pro_image"
-                      id="form-horizontal-text"
+                      #fileInput
                       type="file"
                       placeholder="Upload Image"
                       accept="*png,jpg"
                       (change)="uploadFile($event)"
-                    />
+                      style="display: none"
+                    /> -->
                   </div>
                 </div>
               </div>
+
+
+
             </div>
+
+
             <div class="uk-margin">
-              <label class="uk-form-label" for="form-horizontal-text">Description</label>
+              <label class="uk-form-label" >Description</label>
               <div class="uk-form-controls">
                 <input
                   class="uk-input"
                   formControlName="pro_desc"
-                  id="form-horizontal-text"
+                 
                   type="text"
                   placeholder="Enter Product Description"
                 />
@@ -113,11 +127,13 @@
 
             <div class="uk-margin modal-grid-2">
               <div>
-                <label class="uk-form-label" for="form-horizontal-text">Brand</label>
+                <label class="uk-form-label">Brand</label>
                 <div class="uk-form-controls">
-                    <select class="uk-select" id="form-horizontal-select" formControlName="pro_brand" >
+                    <select class="uk-select" formControlName="pro_brand">
                         <option>Select Brands</option>
-                        <option *ngFor="let brand of brands" value={{brand.id}}>{{brand.brand_name}}</option>
+                        
+                        <option [selected]="brand.brand_name" *ngFor="let brand of brands" value={{brand.id}}>{{brand.brand_name}}</option>
+                        
                     </select>
                 </div>
               </div>
@@ -126,7 +142,7 @@
                 <div class="uk-form-controls">
                     <select class="uk-select" id="form-horizontal-select" formControlName="pro_category" >
                         <option>Select Category</option>
-                        <option *ngFor="let category of categories" value={{category.id}}>{{category.cat_name}}</option>
+                        <option [selected]="category.cat_name" *ngFor="let category of categories" value={{category.id}}>{{category.cat_name}}</option>
                     </select>
                 </div>
               </div>
@@ -142,45 +158,78 @@
             </div> -->
             <div class="uk-margin modal-grid-3">
               <div>
-                <label class="uk-form-label" for="form-horizontal-text">SGST</label>
+                <label class="uk-form-label">SGST</label>
                 <div class="uk-form-controls">
                     <input
                     class="uk-input"
                     formControlName="pro_sgst"
-                    id="form-horizontal-text"
+                  
                     type="text"
                     placeholder="Enter SGST"
                     />
                 </div>
               </div>
               <div>
-                <label class="uk-form-label" for="form-horizontal-text">CGST</label>
+                <label class="uk-form-label">CGST</label>
                 <div class="uk-form-controls">
                   <input
                     class="uk-input"
                     formControlName="pro_cgst"
-                    id="form-horizontal-text"
+                 
                     type="text"
                     placeholder="Enter CGST"
                   />
                 </div>
               </div>
               <div>
-                <label class="uk-form-label" for="form-horizontal-text">Price</label>
+                <label class="uk-form-label" >Price</label>
                 <div class="uk-form-controls">
                   <input
                     class="uk-input"
                     formControlName="pro_price"
-                    id="form-horizontal-text"
+                  
                     type="text"
                     placeholder="Enter Price"
                   />
                 </div>
               </div>
             </div>
+
+            <div class="uk-margin modal-grid-3">
+              <div>
+                <label class="uk-form-label">User Id</label>
+                <div class="uk-form-controls">
+                  <input
+                    class="uk-input"
+                    formControlName="uid"
+                   
+                    type="text"
+                    placeholder="Enter User Id"
+                  />
+                </div>
+              </div>
+              <div>
+                <label class="uk-form-label">Quantity</label>
+                <div class="uk-form-controls">
+                  <input
+                    class="uk-input"
+                    formControlName="pro_qty"
+                  
+                    type="text"
+                    placeholder="Enter Quantity"
+                  />
+                </div>
+              </div>
+            </div>
+            
+
             <div class="uk-modal-footer uk-text-right">
-              <button class="uk-button uk-button-primary" type="submit">
-                Submit
+              
+              <button *ngIf="show_add_btn" class="uk-button uk-button-primary" type="submit" (click)="addProducts()">
+                Create
+              </button>
+              <button *ngIf="show_update_btn" class="uk-button uk-button-primary" type="submit" (click)="updateProducts()">
+                Update
               </button>
             </div>
           </form>

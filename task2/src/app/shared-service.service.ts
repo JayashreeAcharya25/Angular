@@ -9,6 +9,7 @@ import { map } from 'rxjs'
 export class SharedService {
 
   APIUrl = "http://127.0.0.1:8000/v1"
+  product = '/product'
 
   constructor(private http: HttpClient) { }
 
@@ -61,5 +62,15 @@ export class SharedService {
   getProduct(){
     return this.http
       .get(this.APIUrl + '/product/getproduct')
+  }
+
+  updateProduct(val: any){
+    return this.http
+      .put(this.APIUrl + this.product + '/updateproduct', val)
+  }
+
+  deleteProduct(){
+    return this.http
+      .delete(this.APIUrl + this.product + '/deleteproduct')
   }
 }
