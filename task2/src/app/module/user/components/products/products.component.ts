@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { map } from 'rxjs';
 import { SharedService } from 'src/app/shared-service.service';
 import {ProductModel} from './product.model'
 import { ProductsService } from './products.service';
@@ -14,11 +15,15 @@ import { ProductsService } from './products.service';
 export class ProductsComponent implements OnInit {
 
   formvalue!: FormGroup
+
+  selectedBrand: any
+  selectedCategory: any
+  searchedKeyword: any;
   
   products:any = []
   brands: any
   categories:any
-
+  filterproduct: any;
   count: any = 0
 
   productObjModel: ProductModel = new ProductModel()
@@ -38,6 +43,7 @@ export class ProductsComponent implements OnInit {
       .getProduct()
       .subscribe((response: any)=>{
         this.products = response.data
+        this.filterproduct = [...this.products]
         console.log(response)
       }, error =>{
         console.log(error)
@@ -74,6 +80,22 @@ export class ProductsComponent implements OnInit {
     this._service.additems(this.formvalue.value)
     
   }
+
+  filterByDropdown(){
+    this.filterproduct = [...this.products.filter(
+      (product: any) => 
+        product.pro_brand === this.selectedBrand
+        &&
+        product.pro_category === this.selectedCategory
+    )]
+  }
+
+  // filterBySearch(){
+  //   this.filterproduct = this.products.filter((val) =>
+  //     val.name.toLowerCase().includes(value)
+  //   );
+  // }
+
 
 
   

@@ -20,14 +20,15 @@ export class ProductComponent implements OnInit {
   selectedFile: any
 
   brands: any
-  categories:any
-  products:any
+  categories: any
+  products: any
   show_add_btn!: boolean
   show_update_btn!: boolean
 
   pro_color: any = 1
+  id: any
 
-  constructor(private api: SharedService, private formBuilder: FormBuilder) { 
+  constructor(private api: SharedService, private formBuilder: FormBuilder) {
     this.formValue = this.formBuilder.group({
       pro_slno: [''],
       pro_code: [''],
@@ -47,11 +48,11 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
 
     this.api
-        .getBrand()
-        .subscribe(
-          (response: any) => this.brands = response.data,
-          error => console.log(error)
-        )
+      .getBrand()
+      .subscribe(
+        (response: any) => this.brands = response.data,
+        error => console.log(error)
+      )
 
     this.api
       .getCategory()
@@ -59,30 +60,30 @@ export class ProductComponent implements OnInit {
         (response: any) => this.categories = response.data,
         error => console.log(error)
       )
-    
+
     this.getProducts();
-    
+
   }
 
 
-  onClickAddBtn(){
+  onClickAddBtn() {
     this.formValue.reset();
     this.show_add_btn = true;
     this.show_update_btn = false;
   }
 
-  uploadFile(e: any){
+  uploadFile(e: any) {
     this.selectedFile = e.target.files[0]
     console.log(this.selectedFile)
     // this.formValue.controls['pro_image'].setValue(this.selectedFile)
   }
 
-  triggerFile(){
+  triggerFile() {
     let ref = document.getElementById('fileInput')
     ref?.click()
   }
 
-  addProducts(){
+  addProducts() {
     let formData = new FormData()
 
     formData.append('pro_slno', this.formValue.get('pro_slno')?.value)
@@ -100,35 +101,37 @@ export class ProductComponent implements OnInit {
     formData.append('pro_image', this.selectedFile)
 
     this.api
-        .addProduct(formData)
-        .subscribe(
-          (response: any) => {
-            Swal.fire({
-              icon: 'success',
-              title: response.message,
-            });
-            // window.setTimeout(function(){location.reload()}, 1000)
-            this.getProducts()
-            this.ukclose.nativeElement.click()
-          },
-          error => 
-            console.log(error)
-          
-        )
-  }
-
-  getProducts(){
-    this.api
-      .getProduct()
+      .addProduct(formData)
       .subscribe(
-        (response: any) => {this.products = response.data, 
-          console.log(response.data)},
-        error => console.log(error)
-        
+        (response: any) => {
+          Swal.fire({
+            icon: 'success',
+            title: response.message,
+          });
+          // window.setTimeout(function(){location.reload()}, 1000)
+          this.getProducts()
+          this.ukclose.nativeElement.click()
+        },
+        error =>
+          console.log(error)
+
       )
   }
 
-  editProduct(row: any){
+  getProducts() {
+    this.api
+      .getProduct()
+      .subscribe(
+        (response: any) => {
+          this.products = response.data,
+          console.log(response.data)
+        },
+        error => console.log(error)
+
+      )
+  }
+
+  editProduct(row: any) {
 
     console.log(row)
 
@@ -136,6 +139,7 @@ export class ProductComponent implements OnInit {
     this.show_update_btn = true;
 
     this.productObjModel.id = row.id
+    this.id = this.productObjModel.id
 
     this.formValue.controls['pro_slno'].setValue(row.pro_slno)
     this.formValue.controls['pro_code'].setValue(row.pro_code)
@@ -151,12 +155,13 @@ export class ProductComponent implements OnInit {
     this.formValue.controls['pro_qty'].setValue(row.pro_qty)
   }
 
-  updateProducts(){
+  updateProducts(row: any) {
 
-    console.log(this.formValue.value)
+    console.log(this.id)
 
-    let formData = new FormData()
+    const formData = new FormData()
 
+    formData.append('id', this.id)
     formData.append('pro_slno', this.formValue.get('pro_slno')?.value)
     formData.append('pro_code', this.formValue.get('pro_code')?.value)
     formData.append('pro_name', this.formValue.get('pro_name')?.value)
@@ -170,23 +175,39 @@ export class ProductComponent implements OnInit {
     formData.append('pro_qty', this.formValue.get('pro_qty')?.value)
     formData.append('pro_color', this.pro_color)
     formData.append('pro_image', this.formValue.get('pro_image')?.value)
-    
+
     this.api
-        .updateProduct(formData)
-        .subscribe(
-          (response: any) => {
-            Swal.fire({
-              icon: 'success',
-              title: response.message,
-            });
-            // window.setTimeout(function(){location.reload()}, 1000)
-            this.ukclose.nativeElement.click()
-            
-          },
-          error => 
-            console.log(error)
-          
-        )
+      .updateProduct(formData)
+      .subscribe(
+        (response: any) => {
+          // Swal.fire({
+          //   icon: 'success',
+          //   title: response.message,
+          // });
+          console.log(response)
+          // window.setTimeout(function(){location.reload()}, 1000)
+          // this.ukclose.nativeElement.click()
+
+        },
+        error =>
+          console.log(error)
+
+      )
+  }
+
+  deleteProducts(id: any) {
+
+    this.api
+      .deleteProduct(id)
+      .subscribe((response: any) => {
+        Swal.fire({
+          icon: 'success',
+          title: response.message,
+        });
+        
+        this.getProducts()
+      })
+
   }
 
 }

@@ -1,12 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { map } from 'rxjs'
+
+function _window(): any {
+  return window;
+}
+
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class SharedService {
+
+  get nativeWindow(): any{
+    return _window()
+  }
 
   APIUrl = "http://127.0.0.1:8000/v1"
   product = '/product'
@@ -56,21 +64,21 @@ export class SharedService {
 
   addProduct(val:any){
     return this.http
-      .post(this.APIUrl + '/product/addproduct', val)
+      .post(this.APIUrl + this.product + '/addproduct', val)
   }
 
   getProduct(){
     return this.http
-      .get(this.APIUrl + '/product/getproduct')
+      .get(this.APIUrl + this.product + '/getproduct')
   }
 
   updateProduct(val: any){
     return this.http
-      .put(this.APIUrl + this.product + '/updateproduct', val)
+      .put(this.APIUrl + this.product + `/updateproduct`, val)
   }
 
-  deleteProduct(){
+  deleteProduct(id: any){
     return this.http
-      .delete(this.APIUrl + this.product + '/deleteproduct')
+      .delete(this.APIUrl + this.product + `/deleteproduct/${id}`)
   }
 }

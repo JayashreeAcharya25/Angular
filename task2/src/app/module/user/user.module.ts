@@ -11,6 +11,7 @@ import { IndexComponent } from './components/index/index.component';
 import { ProductsComponent } from './components/products/products.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductsService } from './components/products/products.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ProductsService } from './components/products/products.service';
     UserRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    Ng2SearchPipeModule,
   ],
   providers : [
     ProductsService

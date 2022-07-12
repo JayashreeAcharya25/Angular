@@ -50,13 +50,17 @@
     border-left: 1px solid #e5e5e5;
 }
 
-.product .row .container:nth-child(1) .section .uk-margin{
-    text-align: center;  
-}
+/* .product .row .container:nth-child(1) .section .uk-margin{
+    width: 100%;
+} */
 
 .product .row .container:nth-child(1) .section .uk-form-custom,
 .product .row .container:nth-child(1) .section .uk-button{
-    width: 80%;
+    
+    font-size: 13px;
+    text-transform: capitalize;
+    font-family: 'Jost', sans-serif;
+    margin: auto 20px;
 }
 .product .row .container:nth-child(1) .section .uk-button{
     margin: auto;
@@ -104,6 +108,7 @@
     serif;
     margin: 0;
     text-align: right;
+    font-size: 15px;
 }
 
 .product .row .section .card .uk-card-footer{
