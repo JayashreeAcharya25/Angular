@@ -49,7 +49,7 @@ export class SharedService {
   }
 
   updateProduct(val: any){
-    return this.http.post(this.APIUrl + '/products/update', val)
+    return this.http.patch(this.APIUrl + '/products/update', val)
   }
 
   getBrands(){

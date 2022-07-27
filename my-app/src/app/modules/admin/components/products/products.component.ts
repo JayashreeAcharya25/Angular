@@ -31,12 +31,13 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.api.getProducts().subscribe((res: any) =>{
+    this.api
+    .getProducts()
+    .subscribe((response: any) =>{
+      // console.log(response)
+      this.product_list = response.products
+      this.business_unit = response.business_unit
       
-      this.product_list = res.products
-      this.business_unit = res.business_unit
-      console.log("Products",this.product_list);
-      console.log("Business Unit",this.business_unit);
     })
 
     this.formValue = this.formBuilder.group({

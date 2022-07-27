@@ -11,7 +11,8 @@
 }
 .thead_tr th{
     font-weight: 600;
-    color: #000;
+    color: #272727;
+    font-family: 'Joan', serif;
 }
 .table .table_id{
     color: #3f3f3f;
