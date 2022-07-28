@@ -1,8 +1,9 @@
 import { HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { SharedService } from 'src/app/shared.service';
 import {ProductModel} from './product.model'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-products',
@@ -12,20 +13,15 @@ import {ProductModel} from './product.model'
 
 export class ProductsComponent implements OnInit {
 
+  @ViewChild('ukclose') ukclose: any;
+
   formValue!: FormGroup
 
   array_list: any = []
   business_unit: any = []
   product_list: any = [];
+  bu_id: any
   productObjModel: ProductModel = new ProductModel()
-
-  // product_slno: any;
-  // product_name: any;
-  // // product_image: any;
-  // product_price: any;
-  // currentUpload: any;
-
-  // formValue! : FormGroup
 
   constructor( private formBuilder: FormBuilder, private api: SharedService) { }
 
@@ -37,7 +33,9 @@ export class ProductsComponent implements OnInit {
       // console.log(response)
       this.product_list = response.products
       this.business_unit = response.business_unit
-      
+      console.log(response.products)
+      console.log(response.business_unit)
+      this.bu_id = this.business_unit[0].bu_id
     })
 
     this.formValue = this.formBuilder.group({
@@ -51,6 +49,8 @@ export class ProductsComponent implements OnInit {
       pro_saleprice: [''],
       pro_hsn: [''],
     })
+
+    console.log('Message From ngOnInit..')
 
   }
 
@@ -71,11 +71,22 @@ export class ProductsComponent implements OnInit {
 
   onUpdate(){
     console.log(this.formValue.value)
+
+    const data = {
+      'formvalue': this.formValue.value,
+      'bu_id': this.bu_id
+    }
+
     this.api
-      .updateProduct(this.formValue.value)
+      .updateProduct(data)
       .subscribe(
-        response =>{
+        (response: any) =>{
           console.log(response)
+          // Swal.fire({
+          //   icon: 'success',
+          //   title: response.message,
+          // })
+          // this.ukclose.nativeElement.click()
         },
         error =>{
           console.log(error)
@@ -84,4 +95,26 @@ export class ProductsComponent implements OnInit {
 
   }
 
+
+  deleteProducts(id: any){
+    const data = {
+      'bu_id': this.bu_id,
+      'pro_id': id
+    }
+    this.api
+      .deleteProduct(data)
+      .subscribe((response: any) => {
+        console.log(response.data)
+        // Swal.fire({
+        //   icon: 'success',
+        //   title: '<h3 style="font-size: 18px; font-family: Joan, serif; font-weight: 500 ">'+response.message+'</h3>',
+        //   confirmButtonColor: '#7a0459',
+          
+        // });
+        
+      })
+  }
+
 }
+
+

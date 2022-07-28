@@ -34,3 +34,13 @@ strong{
     display: flex;
     justify-content: space-evenly;
 }
+
+.modal .row{
+    margin: auto 0;
+    display: flex ;
+    column-gap: 30px;
+}
+
+.modal .row .col-3{
+    width: 25%;
+}

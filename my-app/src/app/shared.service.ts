@@ -52,12 +52,22 @@ export class SharedService {
     return this.http.patch(this.APIUrl + '/products/update', val)
   }
 
+  deleteProduct(val: any){
+    return this.http.post(this.APIUrl + `/products/delete`, val)
+  }
+
+
+
+
+
+
+
   getBrands(){
     return this.http.get(this.APIUrl + `/brands/brand`);
   }
 
   updateBrands(val: any){
-    return this.http.post(this.APIUrl + '/brands/update', val)
+    return this.http.patch(this.APIUrl + '/brands/update', val)
   }
 
   sendMail(val: any, jsonData: any){
